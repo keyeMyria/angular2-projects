@@ -8,6 +8,7 @@ import '../public/scss/styles.scss';
     selector: 'app',
     template: `
     <h1>{{'HOME.TITLE' | translate }}</h1>
+    <router-outlet></router-outlet>
     `
 })
 export class AppComponent {
