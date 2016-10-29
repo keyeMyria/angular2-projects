@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
-import { HomeComponent } from './home/home.component';
 import { LoginModule } from './login/login.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
     imports: [
         CommonModule,
         PagesRoutingModule,
-        LoginModule
+        LoginModule,
+        HomeModule
     ],
     declarations: [
         PagesComponent,
-        HomeComponent
     ],
     exports: [
 
