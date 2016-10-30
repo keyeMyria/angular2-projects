@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'login',
-    template: `<h2>Login</h2>`
+    template: require('./login.html')
 })
 export class LoginComponent implements OnInit {
 
     constructor() {
+        console.log(this);
     }
 
     ngOnInit() {

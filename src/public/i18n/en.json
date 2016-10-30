@@ -1,5 +1,11 @@
 {
   "HOME": {
     "TITLE": "Title"
+  },
+  "LOGIN": {
+    "LOGIN": "Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "SIGN_IN_TEXT": "Sing In to your account"
   }
 }

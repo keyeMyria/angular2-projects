@@ -26,6 +26,11 @@ import { PagesModule } from './pages/pages.module';
     providers: [
         AppConfigService
     ],
+    exports: [
+        TranslateModule,
+        HttpModule,
+        BrowserModule
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

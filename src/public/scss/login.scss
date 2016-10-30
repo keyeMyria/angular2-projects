@@ -1,0 +1,14 @@
+@import "variables";
+
+.auth-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 540px;
+  background: $bgWhite;
+  border: 1px solid $borderGray;
+}
