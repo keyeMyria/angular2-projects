@@ -7,21 +7,23 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
 import { LayoutsModule } from '../layouts/layouts.module';
+import { PageNotFoundModule } from './page-not-found/page-not-found.module';
 
 @NgModule({
     imports: [
         CommonModule,
         TranslateModule,
         PagesRoutingModule,
+        LayoutsModule,
         LoginModule,
         HomeModule,
-        LayoutsModule
+        PageNotFoundModule
     ],
     declarations: [
         PagesComponent,
     ],
     exports: [
-        TranslateModule
+        TranslateModule,
     ]
 })
 
