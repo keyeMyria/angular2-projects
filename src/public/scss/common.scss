@@ -60,3 +60,10 @@ p {
 .br-g {
   border: 1px solid $borderGray;
 }
+
+//----------------1.5 message---------------//
+
+.error-message {
+  color: $errorText;
+  margin: 15px 0;
+}

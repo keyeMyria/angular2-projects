@@ -59,10 +59,6 @@ module.exports = {
             {
                 from: 'src/public/images',
                 to: 'public/images'
-            },
-            {
-                from: 'src/public/i18n',
-                to: 'public/i18n'
             }
         ])
     ]
