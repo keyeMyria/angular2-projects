@@ -8,7 +8,7 @@ const initialState = {
     tiles: <Tile[]>[],
     goal: false,
     image: '#',
-    tileSize: 105
+    tileSize: 160
 };
 
 export type PuzzleState = IPuzzle;

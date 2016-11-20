@@ -1,15 +1,9 @@
 export class Tile {
-    index: number;
-    location: Location;
-
-    constructor(i: number, loc: Location) {
-        this.index = i;
-        this.location = loc;
+    constructor(public index: number,  public location: Location) {
     }
 }
 
 export class Location {
     constructor(public top: number, public left: number) {
-
     }
 }

@@ -3,6 +3,7 @@ $bgImage: url('../images/bg1.jpg');
 $baseBg: $bgBodyGray $bgImage;
 
 $clWhite: #fff;
+$clWhiteLight: #FDF8F5;
 
 $borderGray: #cfd8dc;
 
@@ -15,3 +16,6 @@ $baseFont: 'Ubuntu', 'Open Sans', 'Helvetica', sans-serif;
 $bRadiusSm: 2px;
 $bRadiusMd: 4px;
 $bRadiusLg: 6px;
+
+
+$boxShadowLight: 0 0 6px $clWhiteLight;
