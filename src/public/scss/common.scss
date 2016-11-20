@@ -87,16 +87,3 @@ header {
     padding: 10px 0;
   }
 }
-
-//----------------1.6 gallery---------------//
-
-gallery {
-  overflow: auto;
-}
-
-@media (min-width: 769px) {
-  gallery {
-    height: 100%;
-    width: 150px;
-  }
-}

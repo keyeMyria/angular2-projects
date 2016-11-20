@@ -1,0 +1,41 @@
+@import "variables";
+
+gallery {
+  overflow: auto;
+}
+
+.photos {
+  padding: 10px;
+}
+
+.photo-item {
+  padding: 5px;
+
+  img {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+    border-radius: $bRadiusLg;
+
+    transition: box-shadow .2s linear;
+
+    &:hover {
+      box-shadow: 0 0 6px #FDF8F5;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  gallery {
+    height: 100%;
+    width: 150px;
+  }
+
+  .photo-item {
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
