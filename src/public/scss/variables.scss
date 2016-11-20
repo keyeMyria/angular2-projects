@@ -1,9 +1,13 @@
-$bgBodyGray: #e4e5e6;
+$bgBodyGray: #838588;
+$bgImage: url('../images/gray-gradient-wallpaper-3.jpg');
+$baseBg: $bgBodyGray $bgImage;
 
-$bgWhite: #fff;
+$clWhite: #fff;
 
 $borderGray: #cfd8dc;
 
 $txMuteGray: #b0bec5;
 
 $errorText: #FF1A21;
+
+$baseFont: 'Ubuntu', 'Open Sans', 'Helvetica', sans-serif;
