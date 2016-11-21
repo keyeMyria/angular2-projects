@@ -4,16 +4,19 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../reducers/index';
 import { Tile, Location } from '../models/Tile';
 import { PuzzleAction } from '../actions/puzzle.action';
+import { PuzzleTile } from "../models/PuzzleTile";
 
 @Injectable()
 export class PuzzleService {
+
+    private _prepTiles: Tile[] = [];
 
     images = [
         prefixPath('/images/gallery/p1.jpg')
     ];
     tileSize: number = 160;
     puzzleImage: string;
-    tiles: Tile[] = [];
+    tiles: PuzzleTile[] = [];
 
     constructor(private store: Store<AppState>,
                 private puzzleAction: PuzzleAction) {
@@ -22,14 +25,21 @@ export class PuzzleService {
     initialize() {
         this.puzzleImage = this.images[0];
 
-        let tileIndex = 0;
-        for(let x = 0; x < 3; x++) {
-            for(let y = 0; y < 3; y++) {
-                this.tiles.push(new Tile(++tileIndex, new Location(this.tileSize * x, this.tileSize * y)));
-            }
-        }
+        this.createPuzzleGrid();
+
+        this.mapTiles();
+        this.shuffle();
 
         this.updateState();
+    }
+
+    createPuzzleGrid() {
+        let tileIndex = 0;
+        for (let x = 0; x < 3; x++) {
+            for (let y = 0; y < 3; y++) {
+                this._prepTiles.push(new Tile(++tileIndex, new Location(this.tileSize * x, this.tileSize * y)));
+            }
+        }
     }
 
     updateState() {
@@ -41,6 +51,25 @@ export class PuzzleService {
                 tileSize: this.tileSize
             }
         ));
+    }
+
+    mapTiles() {
+        this.tiles = <PuzzleTile[]>[];
+        this._prepTiles
+            .map((tile: Tile) => {
+                this.tiles.push(new PuzzleTile(tile));
+            });
+    }
+
+    shuffle() {
+        this.tiles.sort(() => {
+            return Math.random() - 0.5;
+        });
+        console.log(this._prepTiles);
+        console.log(this.tiles);
+        this._prepTiles.map((tile, i)=> {
+            this.tiles[i].current = this._prepTiles[i];
+        });
     }
 
     updateImage(index: number) {

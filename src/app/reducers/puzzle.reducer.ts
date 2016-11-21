@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
 
-import { Tile } from '../models/Tile';
 import { IPuzzle } from '../models/IPuzzle';
 import { PuzzleAction } from '../actions/puzzle.action';
+import { PuzzleTile } from "../models/PuzzleTile";
 
 const initialState = {
-    tiles: <Tile[]>[],
+    tiles: <PuzzleTile[]>[],
     goal: false,
     image: '#',
     tileSize: 160

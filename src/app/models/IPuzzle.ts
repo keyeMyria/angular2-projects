@@ -1,7 +1,7 @@
-import { Tile } from './Tile';
+import { PuzzleTile } from "./PuzzleTile";
 
 export interface IPuzzle {
-    tiles: Tile[];
+    tiles: PuzzleTile[];
     goal: boolean;
     image: string;
     tileSize: number;
