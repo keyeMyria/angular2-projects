@@ -6,6 +6,8 @@ gallery {
 
 .photos {
   padding: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .photo-item {
@@ -16,11 +18,10 @@ gallery {
     height: 75px;
     cursor: pointer;
     border-radius: $bRadiusLg;
-
     transition: box-shadow .2s linear;
 
-    &:hover {
-      box-shadow: 0 0 6px #FDF8F5;
+    &:hover, &.active {
+      box-shadow: $boxShadowLight;
     }
   }
 }
@@ -29,6 +30,14 @@ gallery {
   gallery {
     height: 100%;
     width: 150px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    z-index: 1;
+  }
+
+  .photos {
+    flex-direction: column;
   }
 
   .photo-item {

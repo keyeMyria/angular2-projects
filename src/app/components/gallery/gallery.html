@@ -1,5 +1,10 @@
 <div class="photos">
-    <div class="photo-item" *ngFor="let image of puzzle.images; let i = index">
-        <img [src]="image" alt="puzzle photo" (click)="puzzle.updateImage(i)">
+    <div class="photo-item"
+         *ngFor="let image of puzzle.images; let i = index">
+        <img
+            [src]="image"
+            alt="puzzle photo"
+            (click)="updateImage(i)"
+            [class.active]="puzzle.puzzleImage === puzzle.images[i]">
     </div>
 </div>

@@ -11,4 +11,8 @@ export class GalleryComponent {
 
     }
 
+    updateImage(index: number) {
+        this.puzzle.updateImage(index);
+    }
+
 }

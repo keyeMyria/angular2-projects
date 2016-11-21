@@ -1,3 +1,4 @@
 <div class="board">
+    <div class="tile animated" *ngFor="let tile of state.tiles" [ngStyle]="getStyles(tile)"></div>
     <div #background class="background" [style.backgroundImage]="'url('+state.image+')'"></div>
 </div>
