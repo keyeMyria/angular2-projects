@@ -7,7 +7,10 @@ import { Observable } from 'rxjs/Rx';
 
 @Component({
     selector: 'game',
-    template: `<board [state]="puzzleState | async"></board>`
+    template: `
+        <board [state]="puzzleState | async"></board>
+        <button style="position: absolute; right: 30px; top: 35px;" (click)="puzzle.shuffle()">Shuffle</button>
+    `
 })
 export class GameComponent implements AfterContentInit {
 

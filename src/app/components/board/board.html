@@ -1,6 +1,6 @@
-<div class="board">
-    <div class="tile animated" *ngFor="let tile of state.tiles" [ngStyle]="getStyles(tile)">
+<div class="animated board" [ngClass]="{'start-game': state.isStart}">
+    <div *ngFor="let tile of state.board" [ngStyle]="getStyles(tile)" class="tile animated">
         <span>{{tile.goal.index}}</span>
     </div>
-    <div #background class="background" [style.backgroundImage]="'url('+state.image+')'"></div>
+    <div #background class="background" [style.backgroundImage]="'url('+state.puzzleImage+')'"></div>
 </div>

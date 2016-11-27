@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IPuzzle } from '../../models/IPuzzle';
 import { PuzzleTile } from "../../models/PuzzleTile";
+import { PuzzleGame } from '../../models/PuzzleGame';
 
 @Component({
     selector: 'board',
@@ -8,21 +8,21 @@ import { PuzzleTile } from "../../models/PuzzleTile";
 })
 export class BoardComponent implements OnInit {
 
-    @Input() state: IPuzzle;
+    @Input() state: PuzzleGame;
 
     ngOnInit() {
         console.log(this.state);
     }
 
     getStyles(tile: PuzzleTile) {
-
         return {
             top: tile.current.location.top + 'px',
             left: tile.current.location.left + 'px',
-            width: this.state.tileSize + 'px',
-            height: this.state.tileSize + 'px',
-            backgroundImage: `url(${this.state.image})`,
-            backgroundPosition: `${-tile.goal.location.left}px ${-tile.goal.location.top}px`
+            width: this.state.puzzleSize + 'px',
+            height: this.state.puzzleSize + 'px',
+            backgroundImage: `url(${this.state.puzzleImage})`,
+            backgroundPosition: `${-tile.goal.location.left}px ${-tile.goal.location.top}px`,
+            display: tile.isBlank ? 'none' : ''
         }
     }
 }
