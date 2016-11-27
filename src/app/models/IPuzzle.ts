@@ -1,8 +1,8 @@
 import { PuzzleTile } from "./PuzzleTile";
 
-export interface IPuzzle {
-    tiles: PuzzleTile[];
-    goal: boolean;
-    image: string;
-    tileSize: number;
+export interface IPuzzleGame {
+    isStart: number;
+    board: PuzzleTile[];
+    puzzleImage: string;
+    puzzleSize: number;
 }

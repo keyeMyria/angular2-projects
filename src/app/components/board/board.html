@@ -1,6 +1,9 @@
-<div class="animated board" [ngClass]="{'start-game': state.isStart}">
-    <div *ngFor="let tile of state.board" [ngStyle]="getStyles(tile)" class="tile animated">
-        <span>{{tile.goal.index}}</span>
+<div #board class="animated board"
+     [ngClass]="{'start-game': state.isStart === 1}">
+    <div *ngFor="let tile of state.board"
+         [ngStyle]="getStyles(tile)"
+         class="tile animated" (click)="moveTile(tile)">
+        <!--<span>{{tile.goal.index}}</span>-->
     </div>
     <div #background class="background" [style.backgroundImage]="'url('+state.puzzleImage+')'"></div>
 </div>

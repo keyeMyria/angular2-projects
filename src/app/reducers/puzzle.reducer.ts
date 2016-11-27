@@ -1,19 +1,19 @@
 import { Action } from '@ngrx/store';
 
-import { IPuzzle } from '../models/IPuzzle';
+import { IPuzzleGame } from '../models/IPuzzle';
 import { PuzzleAction } from '../actions/puzzle.action';
 import { PuzzleTile } from "../models/PuzzleTile";
 
 const initialState = {
-    tiles: <PuzzleTile[]>[],
-    goal: false,
-    image: '#',
-    tileSize: 160
+    board: <PuzzleTile[]>[],
+    isStart: 0,
+    puzzleImage: '#',
+    puzzleSize: 160
 };
 
-export type PuzzleState = IPuzzle;
+export type PuzzleGameState = IPuzzleGame;
 
-export const puzzleReducer = (state: IPuzzle = initialState, action: Action): PuzzleState => {
+export const puzzleReducer = (state: IPuzzleGame = initialState, action: Action): PuzzleGameState => {
     switch (action.type) {
         case PuzzleAction.UPDATE_STATE:
             return action.payload;

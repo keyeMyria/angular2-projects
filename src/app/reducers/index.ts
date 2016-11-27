@@ -1,10 +1,10 @@
 import { compose } from '@ngrx/core/compose';
 import { combineReducers } from '@ngrx/store';
 
-import { puzzleReducer, PuzzleState } from './puzzle.reducer';
+import { puzzleReducer, PuzzleGameState } from './puzzle.reducer';
 
 export interface AppState {
-    puzzle: PuzzleState
+    puzzle: PuzzleGameState
 }
 
 export default compose(combineReducers)({
