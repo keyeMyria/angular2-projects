@@ -67,13 +67,12 @@ export class PuzzleGame implements IPuzzleGame {
         this.moves = 0;
     }
 
-    move(tile: PuzzleTile): void {
-        this.moves++;
-        
+    move(tile: PuzzleTile): void {        
         let blankTile = this._getBlankTile();
         let isMove = this.checkMove(blankTile.current.location, tile.current.location);
 
         if(!isMove) return;
+        this.moves++;
         this._swapTile(blankTile, tile);
 
         let isSolve = this._isSolved();

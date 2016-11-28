@@ -48,3 +48,10 @@ gallery {
     }
   }
 }
+
+@media (max-width: 769px) {
+  .photos {
+    padding: 0;
+    margin-top: 10px;
+  }
+}

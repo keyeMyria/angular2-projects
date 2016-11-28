@@ -44,3 +44,9 @@ p {
 .text-muted {
   color: $txMuteGray !important
 }
+
+@media (max-width: 769px) {
+  p {
+    margin-bottom: 0.2em;
+  }
+}

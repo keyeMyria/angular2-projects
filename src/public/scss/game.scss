@@ -2,16 +2,23 @@
 
 game {
   width: 100%;
-  padding-top: 15px;
 }
 
+//****************Top game info panel******************//
+
 .game-info {
-  margin-left: 0;
+  margin: 0 20px 20px;
+  font-size: 20px;
+  
+  display: flex;
+  justify-content: flex-end;
 }
 
 .move-count {
   display: inline-block;
 }
+
+//****************Grid game board panel******************//
 
 board {
   display: flex;
@@ -19,8 +26,6 @@ board {
 }
 
 .board {
-  width: 480px;
-  height: 480px;
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -51,17 +56,58 @@ board {
   }
 }
 
+.hide-index {
+  .tile-index {
+    display: none;
+  }
+}
+
 .tile-index {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  text-shadow: 1px 1px 10px $clWhite;;
+  text-shadow: 1px 1px 10px $clWhite;
+}
+
+//****************Bottom game control panel******************//
+
+.game-control {
+  text-align: center;
+  margin-top: 20px;
+}
+
+//****************Media******************//
+
+@media (min-width: 769px) {
+
 }
 
 @media (min-width: 769px) {
   .game-info {
-    margin-left: 150px;
+    margin: 0 100px 20px 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 50px;
+
+    h1 {
+      font-size: 2em;
+    }
+  }
+
+  .home {
+    padding: 10px 20px;
+  }
+
+  .game-info {
+    margin: 0 20px 10px 20px;
+  }
+
+  .game-control {
+    margin-top:  10px;
   }
 }

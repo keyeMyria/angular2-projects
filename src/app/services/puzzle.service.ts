@@ -24,7 +24,7 @@ export class PuzzleService {
     }
 
     createGame(gameImage: string): void {
-        this.game = new PuzzleGame(gameImage, 160);
+        this.game = new PuzzleGame(gameImage, this.getPuzzleSize());
         this.updateState(this.game);
     }
 
@@ -45,6 +45,18 @@ export class PuzzleService {
     move(tile: PuzzleTile) {
         this.game.move(tile);
         this.updateState(this.game);
+    }
+
+    getPuzzleSize(): number {
+          console.log(document.body.clientWidth);
+          
+          let dHeight = document.body.clientHeight;
+
+          if(dHeight > 768) {
+              return 200;
+          }
+
+          return 140;
     }
 }
 

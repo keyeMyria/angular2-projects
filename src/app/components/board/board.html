@@ -1,5 +1,5 @@
 <div #board class="animated board"
-     [ngClass]="{'start-game': state.isStart === 1}">
+     [ngClass]="{'start-game': state.isStart === 1, 'hide-index': hidePuzzleIndex}">
     <div *ngFor="let tile of state.board"
          [ngStyle]="getStyles(tile)"
          class="tile animated" (click)="moveTile(tile)">
