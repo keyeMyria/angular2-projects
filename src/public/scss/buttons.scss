@@ -1,0 +1,17 @@
+@impoer "variables";
+
+.btn {
+	display: inline-block;
+	border: none;
+	text-decoration: none;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	min-height: 30px;
+	background: $clWhite;
+	padding: 0 10px;
+
+	&.btn-default {
+		border: 1px solid #ccc;
+	}
+}

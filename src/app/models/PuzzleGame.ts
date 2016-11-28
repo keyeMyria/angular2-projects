@@ -58,10 +58,11 @@ export class PuzzleGame implements IPuzzleGame {
     }
 
     shuffle(): void {
-        this.board = GameUtils.shuffleArray(this.board);
-        this._prepTiles.map((tile: Tile, i: number) => {
-            this.board[i].current = this._prepTiles[i];
-        });
+        this._prepTiles = GameUtils.shuffleArray(this._prepTiles);
+        this._prepTiles
+            .map((tile: Tile, i: number) => {
+                this.board[i].current = this._prepTiles[i];
+            });
         this.isStart = PuzzleGameStatus.START;
         this.moves = 0;
     }

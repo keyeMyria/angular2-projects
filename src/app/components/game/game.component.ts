@@ -9,9 +9,18 @@ import { PuzzleTile } from '../../models/PuzzleTile';
 @Component({
     selector: 'game',
     template: `
+        <div class="game-info">
+            <p>Moves: 
+                <span class="move-count">{{puzzle.game.moves}}</span>
+            </p>
+        <button class="btn btn-default b-rd-md"
+            style="position: absolute; right: 30px; top: 35px;"
+            (click)="puzzle.shuffle()">Shuffle</button>
+        </div>
+        
         <board [state]="puzzleState | async" (move)="move($event)"></board>
-        <p>Moves: {{puzzle.game.moves}}</p>
-        <button style="position: absolute; right: 30px; top: 35px;" (click)="puzzle.shuffle()">Shuffle</button>
+
+        
     `
 })
 export class GameComponent implements AfterContentInit {

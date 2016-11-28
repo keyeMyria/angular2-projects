@@ -3,7 +3,7 @@
     <div *ngFor="let tile of state.board"
          [ngStyle]="getStyles(tile)"
          class="tile animated" (click)="moveTile(tile)">
-        <!--<span>{{tile.goal.index}}</span>-->
+        <span class="tile-index">{{tile.goal.index}}</span>
     </div>
     <div #background class="background" [style.backgroundImage]="'url('+state.puzzleImage+')'"></div>
 </div>

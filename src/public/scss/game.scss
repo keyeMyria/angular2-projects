@@ -5,6 +5,14 @@ game {
   padding-top: 15px;
 }
 
+.game-info {
+  margin-left: 0;
+}
+
+.move-count {
+  display: inline-block;
+}
+
 board {
   display: flex;
   justify-content: center;
@@ -38,8 +46,22 @@ board {
   transition: all .5s, opacity 1s ease-in, filter 1s ease-in;
   position: absolute;
   z-index: 1;
-
   &.is-blank {
     opacity: 0;
+  }
+}
+
+.tile-index {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-shadow: 1px 1px 10px $clWhite;;
+}
+
+@media (min-width: 769px) {
+  .game-info {
+    margin-left: 150px;
   }
 }
