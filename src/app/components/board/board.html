@@ -1,9 +1,15 @@
-<div #board class="animated board"
-     [ngClass]="{'start-game': state.isStart === 1, 'hide-index': hidePuzzleIndex}">
+<div #board class="animated board" [ngClass]="{'start-game': state.isStart === 1, 'hide-index': !showPuzzleIndex}">
     <div *ngFor="let tile of state.board"
          [ngStyle]="getStyles(tile)"
          class="tile animated" (click)="moveTile(tile)">
         <span class="tile-index">{{tile.goal.index}}</span>
     </div>
     <div #background class="background" [style.backgroundImage]="'url('+state.puzzleImage+')'"></div>
+
+    <div>
+		<label for="show-index">
+			Show index: 
+			<input id="show-index" type="checkbox" [(ngModel)]="showPuzzleIndex">
+		</label>
+	</div>
 </div>

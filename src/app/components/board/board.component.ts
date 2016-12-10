@@ -25,7 +25,7 @@ export class BoardComponent implements OnInit {
     @ViewChild('board') board: ElementRef;
     @ViewChild('background') background: ElementRef;
 
-    hidePuzzleIndex: boolean = true;
+    showPuzzleIndex: boolean = false;
 
     constructor(private renderer: Renderer) {
 
