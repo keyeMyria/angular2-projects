@@ -1,4 +1,2 @@
 # angular-settings
-In the branch feacher/puzzle located puzzle game.
-## Instalation
-npm install
+1) In the branch feacher/puzzle located puzzle game.
