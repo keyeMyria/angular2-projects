@@ -12,7 +12,8 @@ export class PuzzleService {
     game: PuzzleGame;
 
     images = [
-        prefixPath('/images/gallery/p1.jpg')
+        prefixPath('/images/gallery/p1.jpg'),
+        prefixPath('/images/gallery/p2.jpg')
     ];
 
     constructor(private store: Store<AppState>,
