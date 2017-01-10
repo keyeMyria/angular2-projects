@@ -8,6 +8,7 @@ import '../public/scss/styles.scss';
     <h1>App</h1>
     `
 })
+
 export class AppComponent {
 
 }
