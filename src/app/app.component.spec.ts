@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import generateTSConfig = ts.generateTSConfig;
 
 describe('App', () => {
     beforeEach(() => {
