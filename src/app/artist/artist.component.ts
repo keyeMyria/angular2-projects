@@ -16,10 +16,10 @@ export class ArtistComponent {
 
     public search(term: string) {
         this.itunes.search(term)
-            .subscribe(res => {
+            .subscribe((res: any) => {
                 this.searchResult = res.results;
                 this.searchResultCount = res.resultsCount;
-            }, error => {
+            }, (error: any) => {
                 console.log(error);
             });
     }
