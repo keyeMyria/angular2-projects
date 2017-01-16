@@ -1,0 +1,21 @@
+<header>
+    <md-toolbar color="primary">
+        <h1>ITunes</h1>
+        <input-debounce class="search-input" delay="500" placeholder="Search for artist..." (value)="search($event)"></input-debounce>
+    </md-toolbar>
+</header>
+
+<div class="container">
+    <div class="col-left">
+        <div *ngIf="searchResult.length > 0">
+            <h3>Search Results</h3>
+            <p *ngFor="let artist of searchResult">
+                <a href="#" (click)="getAlbums(artist.artistId, artist.artistName)">{{ artist.artistName }}</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-right">
+
+    </div>
+</div>
+

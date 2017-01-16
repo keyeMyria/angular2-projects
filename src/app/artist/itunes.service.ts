@@ -20,6 +20,7 @@ export class ITunesService {
 
     private errorHandler(error: any) {
         console.log(error);
+
         return Observable.throw(error);
     }
 }
