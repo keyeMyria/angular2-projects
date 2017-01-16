@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { ArticleModule } from './article/article.module';
+
 
 @NgModule({
     imports     : [
         BrowserModule,
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+
+        ArticleModule
     ],
     declarations: [
         AppComponent
