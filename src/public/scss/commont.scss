@@ -13,6 +13,16 @@ h1, h2, h3, h4, h5, h6 {
   color: $titleColor;
 }
 
+h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
 a {
   color: #337ab7;
   text-decoration: none;
@@ -39,6 +49,10 @@ input {
 }
 :-moz-placeholder {
   color: $placeHolderInput;
+}
+
+.header-title {
+  color: $titleColorWhite;
 }
 
 //

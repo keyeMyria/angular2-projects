@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Jsonp, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
-interface IArtistCache {
+interface IReauestCache {
     [key: string]: Observable<Response>;
 }
 
@@ -14,42 +14,68 @@ const API = {
 @Injectable()
 export class ITunesService {
 
-    private _artistCache: IArtistCache = {};
+    private _artistCache: IReauestCache = {};
+    private _albumsCache: IReauestCache = {};
 
     constructor(private jsonp: Jsonp) {}
 
-    public search(term: string): Observable<Response> {
+    public searchArtist(term: string): Observable<Response> {
         if(this._artistCache[term]) {
-            console.log('cache');
-            return this.getArtistCache(term);
-        } else {
-            console.log('not cache');
-            return this.searchArtist(term);
+            return this._artistCache[term];
         }
+
+        return this._searchArtist(term);
     }
 
-    private searchArtist(term: string): Observable<Response> {
+    public searchAlbumsByArtistId(artistId: number): Observable<Response> {
+        if(this._albumsCache[artistId]) {
+            return this._albumsCache[artistId];
+        }
+
+        return this._searchAlbumsByArtistId(artistId);
+    }
+
+    private _searchArtist(term: string): Observable<Response> {
         return this.jsonp.get(`${API.SEARCH}callback=JSONP_CALLBACK&media=music&country=US&entity=musicArtist&term=${term}`)
+            .map(data => this._searchArtistMap(data, term))
+            .catch(this.errorHandler);
+    }
+
+    private _searchArtistMap(data: Response, term: string) {
+        data = data.json();
+
+        this._artistCache[term] = Observable.create((observer: any) => {
+            observer.next(data);
+            observer.complete();
+        });
+
+        return data;
+    }
+
+    private _searchAlbumsByArtistId(artistId: number): Observable<Response> {
+        return this.jsonp.get(`${API.LOOKUP}callback=JSONP_CALLBACK&entity=album&id=${artistId}`)
+            .map(data => this._searchAlbumsMap(data, artistId))
             .map(data => {
-                data = data.json();
-
-                this._artistCache[term] = Observable.create((observer: any) => {
-                    observer.next(data);
-                    observer.complete();
+                data['results'] = data['results'].filter((results: any) => {
+                    return results.wrapperType == 'collection';
                 });
-
                 return data;
             })
             .catch(this.errorHandler);
     }
 
-    private getArtistCache(key: string): Observable<Response> {
-        return this._artistCache[key];
+    private _searchAlbumsMap(data: Response, artistId: number) {
+        data = data.json();
+
+        this._albumsCache[artistId] = Observable.create((observer: any) => {
+            observer.next(data);
+            observer.complete();
+        });
+
+        return data;
     }
 
     private errorHandler(error: any) {
-        console.log(error);
-
         return Observable.throw(error);
     }
 }

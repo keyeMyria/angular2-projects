@@ -7,25 +7,38 @@ import { ITunesService } from './itunes.service';
 })
 export class ArtistComponent {
 
-    searchResult: any[] = [];
-    searchResultCount: number;
+    selectedArtistName: string;
+    searchArtistResult: any[] = [];
+    searchAlbumResult: any[] = [];
 
-    constructor(private itunes: ITunesService){
-
+    constructor(private itunes: ITunesService) {
     }
 
-    public search(term: string) {
-        this.itunes.search(term)
-            .subscribe((res: any) => {
-                this.searchResult = res.results;
-                this.searchResultCount = res.resultsCount;
-            }, (error: any) => {
-                console.log(error);
-            });
+    public searchArtist(term: string) {
+        this.itunes.searchArtist(term)
+            .subscribe((res: any) => this.searchArtistSuccessHandler(res),
+                (error: any) => {
+                    console.log(error);
+                });
+    }
+
+    public searchArtistSuccessHandler(res: { results: Object[], resultsCount: number }) {
+        this.searchArtistResult = res.results;
     }
 
     public getAlbums(artistId: number, artistName: string) {
-        console.log(artistId);
-        console.log(artistName);
+        this.selectedArtistName = artistName;
+        this.itunes.searchAlbumsByArtistId(artistId)
+            .subscribe(
+                (res: any) => this.searchAlbumsSuccessHandler(res),
+                (error: any) => {
+                    console.log(error);
+                });
     }
+
+    public searchAlbumsSuccessHandler(res: { results: Object[], resultsCount: number }) {
+        this.searchAlbumResult = res.results;
+        console.log(res)
+    }
+
 }
