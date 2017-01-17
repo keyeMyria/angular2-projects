@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'app',
     template: `
-    <article-component></article-component>
+    <artists></artists>
     `
 })
 

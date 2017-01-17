@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { ITunesService } from './itunes.service';
+import { ITunesService } from '../services/itunes.service';
 
 @Component({
-    selector: 'article-component',
+    selector: 'artists',
     template: require('./artist.html')
 })
 export class ArtistComponent {
 
-    selectedArtistName: string;
+    selectedArtist: any;
     searchArtistResult: any[] = [];
-    searchAlbumResult: any[] = [];
 
     constructor(private itunes: ITunesService) {
     }
@@ -18,7 +17,7 @@ export class ArtistComponent {
         this.itunes.searchArtist(term)
             .subscribe((res: any) => this.searchArtistSuccessHandler(res),
                 (error: any) => {
-                    console.log(error);
+                    console.log('error', error);
                 });
     }
 
@@ -26,19 +25,7 @@ export class ArtistComponent {
         this.searchArtistResult = res.results;
     }
 
-    public getAlbums(artistId: number, artistName: string) {
-        this.selectedArtistName = artistName;
-        this.itunes.searchAlbumsByArtistId(artistId)
-            .subscribe(
-                (res: any) => this.searchAlbumsSuccessHandler(res),
-                (error: any) => {
-                    console.log(error);
-                });
+    public selectArtist(artist: any) {
+        this.selectedArtist = artist;
     }
-
-    public searchAlbumsSuccessHandler(res: { results: Object[], resultsCount: number }) {
-        this.searchAlbumResult = res.results;
-        console.log(res)
-    }
-
 }

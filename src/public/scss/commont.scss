@@ -1,12 +1,16 @@
 @import "variables";
 
-* {
+html {
   box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
   height: 100vh;
   overflow: hidden;
+  color: $textColor;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -55,6 +59,11 @@ input {
   color: $titleColorWhite;
 }
 
+header {
+  position: relative;
+  z-index: 1;
+}
+
 //
 // Input style
 //
@@ -100,4 +109,28 @@ input {
     overflow-y: auto;
     height: 100%;
   }
+}
+
+//
+// Table style
+//
+table {
+  width: 100%;
+  margin: 0;
+  max-width: none;
+  border-spacing: 0;
+  empty-cells: show;
+  border-width: 0;
+  outline: none;
+
+  th {
+    line-height: 2;
+  }
+
+  td, th {
+    vertical-align: middle;
+    padding: .5em 1em;
+    line-height: 1.3;
+  }
+
 }

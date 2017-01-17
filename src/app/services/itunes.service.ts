@@ -35,6 +35,12 @@ export class ITunesService {
         return this._searchAlbumsByArtistId(artistId);
     }
 
+    public getTrack(albumId: number) {
+        return this.jsonp.get(`${API.LOOKUP}callback=JSONP_CALLBACK&entity=song&id=${albumId}`)
+            .map(data => this._trackMap(data))
+            .catch(this.errorHandler)
+    }
+
     private _searchArtist(term: string): Observable<Response> {
         return this.jsonp.get(`${API.SEARCH}callback=JSONP_CALLBACK&media=music&country=US&entity=musicArtist&term=${term}`)
             .map(data => this._searchArtistMap(data, term))
@@ -73,6 +79,10 @@ export class ITunesService {
         });
 
         return data;
+    }
+
+    private _trackMap(data: Response) {
+        return data.json();
     }
 
     private errorHandler(error: any) {

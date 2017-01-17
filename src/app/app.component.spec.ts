@@ -24,20 +24,4 @@ describe('App(inline template)', () => {
         de = fixture.debugElement.query(By.css('h1'));
         el = de.nativeElement;
     });
-
-    it('should display origin title', () => {
-        fixture.detectChanges();
-        expect(el.textContent).toContain(comp.title);
-    });
-
-    it('should display a different title', () => {
-        comp.title = 'T T';
-        fixture.detectChanges();
-        expect(el.textContent).toContain('T T');
-    });
-
-    it('no title in the DOM until manually call `detectChanges`', () => {
-        expect(el.textContent).toEqual('');
-    });
-
 });

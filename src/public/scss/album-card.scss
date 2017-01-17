@@ -1,0 +1,32 @@
+@import "variables";
+
+.album-table {
+  border: 1px solid $borderColorLightGray;
+
+  .album-img {
+    width: 95px;
+  }
+
+  thead tr {
+    border-bottom: 1px solid $borderColorLightGray;
+  }
+
+  tr:not(:last-child) {
+    border-bottom: 1px solid $borderColorLightGray;
+  }
+
+  td:first-child {
+    //vertical-align: top;
+    width: 20px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  td:not(:last-child), th:not(:last-child){
+    border-right: 1px solid $borderColorLightGray;
+  }
+
+  tr:not(:last-child) {
+    border-bottom: 1px solid $borderColorLightGray;
+  }
+}

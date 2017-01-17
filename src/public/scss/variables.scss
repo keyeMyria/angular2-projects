@@ -1,8 +1,10 @@
 @import '~@angular/material/core/theming/all-theme';
 
-$titleColorWhite: #fff;
-$titleColor: #333333;
+$titleColorWhite     : #fff;
+$titleColor          : #333;
+$textColor           : #444;
 
-$borderInput: #0097a7;
+$borderInput         : #0097a7;
 
-$placeHolderInput: #ccc;
+$placeHolderInput    : #ccc;
+$borderColorLightGray: #ccc;

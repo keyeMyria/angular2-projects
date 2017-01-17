@@ -10,15 +10,13 @@
         <div *ngIf="searchArtistResult.length > 0">
             <h4>Search Results</h4>
             <p *ngFor="let artist of searchArtistResult">
-                <a href="#" (click)="getAlbums(artist.artistId, artist.artistName)">{{ artist.artistName }}</a>
+                <a href="#" (click)="selectArtist(artist)">{{ artist.artistName }}</a>
             </p>
         </div>
     </div>
-    <div class="col-right">
-        <h3>{{selectedArtistName}}</h3>
-        <div *ngIf="searchAlbumResult.length > 0">
-
-        </div>
+    <div class="col-right" *ngIf="selectedArtist">
+        <h3>{{selectedArtist.artistName}}</h3>
+        <album *ngIf="selectedArtist" [artistId]="selectedArtist.artistId"></album>
     </div>
 </div>
 

@@ -1,0 +1,28 @@
+<div *ngIf="searchAlbumResult.length > 0">
+    <div>
+        <table class="album-table">
+            <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Album Title</td>
+                <td>Release Date</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let album of searchAlbumResult" (click)="getTrack(album.collectionId)">
+                    <td>+</td>
+                    <td class="album-img">
+                        <img src="{{album.artworkUrl60}}" alt="album image">
+                    </td>
+                    <td>
+                        {{album.collectionName}}
+                    </td>
+                    <td>
+                        {{album.releaseDate | date}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
