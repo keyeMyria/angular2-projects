@@ -15,10 +15,14 @@
     border-bottom: 1px solid $borderColorLightGray;
   }
 
+  td {
+    vertical-align: top;
+  }
+
   td:first-child {
-    //vertical-align: top;
+    padding-top: 2.2em;
     width: 20px;
-    font-size: 20px;
+    font-size: 14px;
     cursor: pointer;
   }
 
@@ -28,5 +32,12 @@
 
   tr:not(:last-child) {
     border-bottom: 1px solid $borderColorLightGray;
+  }
+}
+
+.wp-track-control {
+  .icon_st {
+    font-size: 14px;
+    cursor: pointer;
   }
 }

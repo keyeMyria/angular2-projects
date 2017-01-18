@@ -7,6 +7,7 @@ import {ITunesService} from "../services/itunes.service";
 })
 export class AlbumComponent {
     _artistId: number;
+    collectionId: number;
 
     @Input()
     set artistId(artistId: number) {
@@ -34,21 +35,11 @@ export class AlbumComponent {
                 });
     }
 
-    public getTrack(collectionId: number) {
-        console.log(collectionId);
-        this.itunes.getTrack(collectionId)
-            .subscribe(
-                (res: any) => this.getTrackSuccessHandler(res),
-                (error: any) => {
-                    console.log('error', error);
-                });
+    public getTrack(collectionId: number, index: number) {
+        this.collectionId = collectionId;
     }
 
     private searchAlbumsSuccessHandler(res: {results: Object[], resultsCount: number}) {
         this.searchAlbumResult = res.results;
-    }
-
-    private getTrackSuccessHandler(data: any) {
-        console.log(data);
     }
 }

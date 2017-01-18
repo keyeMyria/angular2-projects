@@ -1,0 +1,33 @@
+<div *ngIf="searchAlbumResult.length > 0">
+    <div>
+        <table class="album-table">
+            <thead>
+            <tr>
+                <th style="width: 30px"></th>
+                <th></th>
+                <th>Album Title</th>
+                <th width="130">Release Date</th>
+                <th  width="35%;">Songs</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let album of searchAlbumResult; let i = index;">
+                    <td class="icon-plus" (click)="getTrack(album.collectionId, i)"></td>
+                    <td class="album-img">
+                        <img src="{{album.artworkUrl60}}" alt="album image">
+                    </td>
+                    <td>
+                        {{album.collectionName}}
+                    </td>
+                    <td>
+                        {{album.releaseDate | date}}
+                    </td>
+                    <td>
+                        <track-component *ngIf="collectionId === album.collectionId" [collectionId]="collectionId"></track-component>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<track-component *ngIf="collectionId" [collectionId]="collectionId"></track-component>-->
+    </div>
+</div>

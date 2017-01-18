@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { ArtistModule } from './artist/artist.module';
+import { ITunesModule } from './itunes/itunes.module';
 
 @NgModule({
     imports     : [
         BrowserModule,
         MaterialModule.forRoot(),
 
-        ArtistModule
+        ITunesModule
     ],
     declarations: [
         AppComponent

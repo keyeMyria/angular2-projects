@@ -7,6 +7,10 @@ html {
   box-sizing: inherit;
 }
 
+[class^="icon-"], [class*=" icon-"] {
+  font-size: 12px;
+}
+
 body {
   height: 100vh;
   overflow: hidden;
@@ -129,8 +133,7 @@ table {
 
   td, th {
     vertical-align: middle;
-    padding: .5em 1em;
+    padding: .5em .7em;
     line-height: 1.3;
   }
-
 }

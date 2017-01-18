@@ -16,6 +16,7 @@ export class ITunesService {
 
     private _artistCache: IReauestCache = {};
     private _albumsCache: IReauestCache = {};
+    private _tracksCache: IReauestCache = {};
 
     constructor(private jsonp: Jsonp) {}
 
@@ -36,11 +37,16 @@ export class ITunesService {
     }
 
     public getTrack(albumId: number) {
-        return this.jsonp.get(`${API.LOOKUP}callback=JSONP_CALLBACK&entity=song&id=${albumId}`)
-            .map(data => this._trackMap(data))
-            .catch(this.errorHandler)
+        if(this._tracksCache[albumId]) {
+            return this._tracksCache[albumId];
+        }
+
+        return this._getTrack(albumId);
     }
 
+    //
+    // Search artist
+    //
     private _searchArtist(term: string): Observable<Response> {
         return this.jsonp.get(`${API.SEARCH}callback=JSONP_CALLBACK&media=music&country=US&entity=musicArtist&term=${term}`)
             .map(data => this._searchArtistMap(data, term))
@@ -58,6 +64,9 @@ export class ITunesService {
         return data;
     }
 
+    //
+    // Search albums artist
+    //
     private _searchAlbumsByArtistId(artistId: number): Observable<Response> {
         return this.jsonp.get(`${API.LOOKUP}callback=JSONP_CALLBACK&entity=album&id=${artistId}`)
             .map(data => this._searchAlbumsMap(data, artistId))
@@ -81,8 +90,30 @@ export class ITunesService {
         return data;
     }
 
-    private _trackMap(data: Response) {
-        return data.json();
+    //
+    // Search track by artist and album
+    //
+    private _getTrack(albumId: number) {
+        return this.jsonp.get(`${API.LOOKUP}callback=JSONP_CALLBACK&entity=song&id=${albumId}`)
+            .map(data => this._trackMap(data, albumId))
+            .map(data => {
+                data['results'] = data['results'].filter((results: any) => {
+                    return results.wrapperType == 'track';
+                });
+                return data;
+            })
+            .catch(this.errorHandler)
+    }
+
+    private _trackMap(data: Response, albumId: number) {
+        data = data.json();
+
+        this._tracksCache[albumId] = Observable.create((observer: any) => {
+            observer.next(data);
+            observer.complete();
+        });
+
+        return data;
     }
 
     private errorHandler(error: any) {

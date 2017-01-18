@@ -1,0 +1,8 @@
+<div *ngIf="trackResults.length > 0">
+    <div *ngFor="let track of trackResults">
+        <span>
+            <track-control [track]="track"></track-control>
+        </span>
+        <span>{{track.trackName}}</span>
+    </div>
+</div>
