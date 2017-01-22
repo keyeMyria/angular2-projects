@@ -1,0 +1,22 @@
+login {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-block {
+  width: 400px;
+
+  md-card {
+    padding: 0;
+  }
+
+  .title {
+    color: #fff;
+  }
+
+  .auth-container {
+    padding: 24px;
+  }
+}

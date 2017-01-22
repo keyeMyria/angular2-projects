@@ -1,0 +1,40 @@
+<div class="auth-block">
+    <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+        {{ loginForm.get('email').errors | json }}
+        <md-card>
+            <md-toolbar color="primary">
+                <h2 class="title">Sign In</h2>
+            </md-toolbar>
+
+            <div class="auth-container">
+                <div class="mb-l">
+                    <md-input-container class="full-with">
+                        <input md-input
+                               type="text"
+                               name="email"
+                               formControlName="email"
+                               required
+                               placeholder="Email"
+                        >
+                    </md-input-container>
+                </div>
+
+                <div class="mb-l">
+                    <md-input-container class="full-with">
+                        <input md-input
+                               type="password"
+                               name="password"
+                               formControlName="password"
+                               required
+                               placeholder="Password"
+                        >
+                    </md-input-container>
+                </div>
+
+                <div class="clearfix">
+                    <button class="right" md-raised-button type="submit" [disabled]="loginForm.invalid">Raised button</button>
+                </div>
+            </div>
+        </md-card>
+    </form>
+</div>
