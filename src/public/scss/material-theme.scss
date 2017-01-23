@@ -1,7 +1,17 @@
 @import '~@angular/material/core/theming/all-theme';
 @include md-core();
 $primary: md-palette($md-cyan, 400);
-$accent:  md-palette($md-teal, 600, A100, A400);
-$warn:    md-palette($md-red, 600);
+$accent:  md-palette($md-red, 600, A100, A400);
+$warn:    md-palette($md-amber, 600);
 $theme: md-light-theme($primary, $accent, $warn);
 @include angular-material-theme($theme);
+
+.ng-invalid.ng-touched.ng-dirty {
+  .md-hint {
+    color: md-color($accent);
+  }
+}
+
+.md-accent {
+  color: md-color($accent);
+}

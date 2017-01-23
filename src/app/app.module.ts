@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login';
 import { PageNotFoundComponent } from './components/page-not-found';
-import { routing } from './app.routes';
+import { AppRoutingModule } from './app-routing.module';
 
 const APP_COMPONENTS: any[] = [
     LoginComponent,
@@ -18,7 +18,7 @@ const APP_COMPONENTS: any[] = [
         BrowserModule,
         ReactiveFormsModule,
         MaterialModule.forRoot(),
-        routing
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
@@ -27,6 +27,7 @@ const APP_COMPONENTS: any[] = [
     ],
     bootstrap   : [ AppComponent ]
 })
+
 export class AppModule {
 
 }

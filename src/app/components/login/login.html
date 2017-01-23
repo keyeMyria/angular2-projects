@@ -1,6 +1,5 @@
 <div class="auth-block">
     <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-        {{ loginForm.get('email').errors | json }}
         <md-card>
             <md-toolbar color="primary">
                 <h2 class="title">Sign In</h2>
@@ -8,31 +7,40 @@
 
             <div class="auth-container">
                 <div class="mb-l">
-                    <md-input-container class="full-with">
+                    <md-input-container class="full-with" dividerColor="{{formErrors.email ? 'accent': ''}}">
                         <input md-input
                                type="text"
                                name="email"
                                formControlName="email"
                                required
                                placeholder="Email"
+                               (blur)="onValueChanged()"
                         >
+                        <md-hint [hidden]="formErrors.email">
+                            <span>{{formErrors.email}}</span>
+                        </md-hint>
+
                     </md-input-container>
                 </div>
 
                 <div class="mb-l">
-                    <md-input-container class="full-with">
+                    <md-input-container class="full-with" dividerColor="{{formErrors.password ? 'accent': ''}}">
                         <input md-input
                                type="password"
                                name="password"
                                formControlName="password"
                                required
                                placeholder="Password"
+                               (blur)="onValueChanged()"
                         >
+                        <md-hint [hidden]="formErrors.password">
+                            <span>{{formErrors.password}}</span>
+                        </md-hint>
                     </md-input-container>
                 </div>
 
                 <div class="clearfix">
-                    <button class="right" md-raised-button type="submit" [disabled]="loginForm.invalid">Raised button</button>
+                    <button class="right" md-raised-button type="submit" [disabled]="loginForm.invalid">Sign up</button>
                 </div>
             </div>
         </md-card>
