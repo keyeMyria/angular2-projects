@@ -8,14 +8,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { LayoutsModule } from '../layouts/layouts.module';
 
-import { LoginGuard } from './login/login-guard';
-import { AuthGuard } from './login/auth-guard';
-
-import { LoginService } from './login/login.service';
-import { HttpService } from '../services/HttpService';
+import { HttpService } from '../services';
 
 import { PagesComponent } from './pages.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent, LoginGuard, AuthGuard, LoginService } from './login';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
