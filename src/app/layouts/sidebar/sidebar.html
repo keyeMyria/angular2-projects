@@ -1,9 +1,11 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Home</a>
+            <li class="nav-item" *ngFor="let menu of menuItem">
+                <a href="#{{menu.ref}}" class="nav-link">{{menu.title}}</a>
             </li>
         </ul>
     </nav>
+
+    <se-footer></se-footer>
 </div>

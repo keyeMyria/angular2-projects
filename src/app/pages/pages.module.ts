@@ -2,17 +2,45 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from 'ng2-translate';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpModule, XHRBackend, RequestOptions, Http } from '@angular/http';
+import { HttpModule, XHRBackend, RequestOptions } from '@angular/http';
+
+import { PagesRoutingModule } from './pages-routing.module';
+
+import { LayoutsModule } from '../layouts/layouts.module';
+
+import { LoginGuard } from './login/login-guard';
+import { AuthGuard } from './login/auth-guard';
+
+import { LoginService } from './login/login.service';
+import { HttpService } from '../services/HttpService';
 
 import { PagesComponent } from './pages.component';
-import { PagesRoutingModule } from './pages-routing.module';
-import { HomeModule } from './home/home.module';
-import { LayoutsModule } from '../layouts/layouts.module';
 import { LoginComponent } from './login/login.component';
-import { LoginService } from './login/login.service';
-import { AuthGuard } from './login/auth-guard';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HttpService } from '../services/HttpService';
+
+const GUARD_SERVICES = [
+    AuthGuard,
+    LoginGuard
+];
+
+const SERVICES = [
+    LoginService,
+    {
+        provide: HttpService,
+        useFactory: (backend: XHRBackend, defaultOptions: RequestOptions) => {
+            return new HttpService(backend, defaultOptions);
+        },
+        deps: [XHRBackend, RequestOptions],
+    }
+];
+
+const PAGE_COMPONENTS =[
+    PagesComponent,
+    LoginComponent,
+    HomeComponent,
+    PageNotFoundComponent
+];
 
 @NgModule({
     imports     : [
@@ -24,23 +52,13 @@ import { HttpService } from '../services/HttpService';
         PagesRoutingModule,
 
         LayoutsModule,
-        HomeModule,
     ],
     declarations: [
-        PagesComponent,
-        LoginComponent,
-        PageNotFoundComponent
+        ...PAGE_COMPONENTS
     ],
     providers   : [
-        LoginService,
-        AuthGuard,
-        {
-            provide: HttpService,
-            useFactory: (backend: XHRBackend, defaultOptions: RequestOptions) => {
-                return new HttpService(backend, defaultOptions);
-            },
-            deps: [XHRBackend, RequestOptions],
-        }
+        ...SERVICES,
+        ...GUARD_SERVICES,
     ],
     exports     : [
         TranslateModule,

@@ -16,7 +16,7 @@ export class LoginService {
     constructor(private httpService: HttpService) {
     }
 
-    public login(userData: ILoginForm): Observable<any> {
+    login(userData: ILoginForm): Observable<any> {
 
         if (userData.username === 'e' && userData.password === '123123') {
             return new Observable((observer: any) => {
@@ -28,6 +28,10 @@ export class LoginService {
         } else {
             return Observable.throw(new Error('invalid username or password'));
         }
+    }
+
+    logout() {
+        localStorage.removeItem('profile');
     }
 
 }

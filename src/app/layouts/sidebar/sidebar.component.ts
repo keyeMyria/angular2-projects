@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SIDEBAR_MENU } from './sidebar-menu';
+import { Utils } from '../../utils/';
 
 @Component({
     selector: 'se-sidebar',
@@ -6,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-    constructor() {
+    menuItem;
 
+    constructor() {
     }
 
     ngOnInit() {
-
+        this.menuItem = Utils.clone(SIDEBAR_MENU);
     }
 }

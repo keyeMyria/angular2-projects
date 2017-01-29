@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LoginService } from '../../pages/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'se-header',
@@ -10,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
     public isShowSidebar: boolean = true;
 
-    constructor() {
+    constructor(private _login: LoginService, private _router: Router) {
 
     }
 
@@ -22,4 +24,8 @@ export class HeaderComponent implements OnInit {
         this.toggleSidebar.emit(this.isShowSidebar);
     }
 
+    logout() {
+        this._login.logout();
+        this._router.navigate(['/login']);
+    }
 }

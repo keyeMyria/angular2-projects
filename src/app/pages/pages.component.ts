@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
     selector: 'pages',
     template: `
-    <div id="body-wrapper" class="navbar-fixed" [ngClass]="{'sidebar-open': isShowSidebar}">
-        <se-header (toggleSidebar)="toggleSidebar($event)"></se-header>
+    <div class="body-wrapper" [ngClass]="{'sidebar-open': isShowSidebar}">
         <se-sidebar></se-sidebar>
         
         <main class="main">
+            <se-header (toggleSidebar)="toggleSidebar($event)"></se-header>
+            
             <div class="container-fluid">
                 <router-outlet></router-outlet>
             </div>

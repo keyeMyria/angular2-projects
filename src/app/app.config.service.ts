@@ -9,8 +9,8 @@ export class AppConfigService {
     }
 
     setDefaultLanguage() {
-        this.translate.addLangs(['en', 'ua']);
-        this.translate.setDefaultLang('en');
-        this.translate.use('en');
+        this.translate.addLangs(['en', 'ua', 'ua']);
+        this.translate.setDefaultLang('ua');
+        this.translate.use('ua');
     }
 }
