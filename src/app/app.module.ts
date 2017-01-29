@@ -25,13 +25,7 @@ import { HttpService } from './services/HttpService';
         AppComponent
     ],
     providers: [
-        AppConfigService,
-        HttpService
-    ],
-    exports: [
-        TranslateModule,
-        HttpModule,
-        BrowserModule
+        AppConfigService
     ],
     bootstrap: [AppComponent]
 })
