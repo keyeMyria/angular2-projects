@@ -13,7 +13,7 @@ const authToken: IToken = {
 export class LoginService {
 
     public login(userData: ILoginForm): Observable<any> {
-        if (userData.username === 'admin@admin.test' && userData.password === '123123') {
+        if (userData.username === 'e' && userData.password === '123123') {
             return new Observable((observer: any) => {
                 setTimeout(() => {
                     observer.next(authToken);

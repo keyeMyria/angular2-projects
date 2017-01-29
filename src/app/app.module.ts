@@ -7,6 +7,7 @@ import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-tra
 import { AppConfigService } from './app.config.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
+import { HttpService } from './services/HttpService';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { PagesModule } from './pages/pages.module';
         AppComponent
     ],
     providers: [
-        AppConfigService
+        AppConfigService,
+        HttpService
     ],
     exports: [
         TranslateModule,
