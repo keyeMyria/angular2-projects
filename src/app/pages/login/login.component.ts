@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
                     this._router.navigate(['/'])
                 },
                 (error: any) => {
-                    console.log(error, 'error');
+                    console.error(error, 'error');
                 });
     }
 
