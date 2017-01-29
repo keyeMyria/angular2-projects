@@ -6,6 +6,7 @@
     "LOGIN": "Login",
     "USERNAME": "Username",
     "PASSWORD": "Password",
-    "SIGN_IN_TEXT": "Sing In to your account"
+    "SIGN_IN_TEXT": "Sing In to your account",
+    "LOGOUT": "Logout"
   }
 }

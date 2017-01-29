@@ -7,7 +7,6 @@ import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-tra
 import { AppConfigService } from './app.config.service';
 import { AppRoutingModule } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
-import { HttpService } from './services/HttpService';
 
 @NgModule({
     imports: [
@@ -15,8 +14,8 @@ import { HttpService } from './services/HttpService';
         HttpModule,
         TranslateModule.forRoot({
             provide: TranslateLoader,
-            useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/i18n', '.json'),
-            deps: [Http]
+            deps: [Http],
+            useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/i18n', '.json')
         }),
         AppRoutingModule,
         PagesModule
