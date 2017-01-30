@@ -6,30 +6,30 @@ import {
     Request,
     Headers,
     ConnectionBackend,
-    RequestOptions
+    RequestOptions,
+    RequestMethod, URLSearchParams
 } from '@angular/http';
 import { Observable } from 'rxjs';
+import { CONSTANTS } from './../configs';
 
 @Injectable()
 export class HttpService extends Http {
+
+    protected _headers: Headers;
 
     constructor(backend: ConnectionBackend,
                 defaultOptions: RequestOptions) {
         super(backend, defaultOptions);
     }
 
-    request(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
+    requestLocal(url: string | Request, options?: RequestOptionsArgs): Observable<Response> {
         return super.request(url, options);
     }
 
-    getLocal(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        return super.get(url, options);
-    }
+    request(url: string, options?): Observable<Response> {
+        options = this.requestOptions(options);
 
-    get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        this.requestInterceptor();
-
-        return super.get(this.getFullUrl(url), this.requestOptions(options))
+        return super.request(this.getFullUrl(url), options)
             .catch(this.onCatch)
             .do(
                 (res: Response) => {
@@ -45,77 +45,40 @@ export class HttpService extends Http {
                 });
     }
 
-    post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-        this.requestInterceptor();
-
-        return super.post(this.getFullUrl(url), body, this.requestOptions(options))
-            .catch(this.onCatch)
-            .do(
-                (res: Response) => {
-                    this.onSubscribeSuccess(res);
-                },
-                (error: any) => {
-                    this.onSubscribeError(error);
-                }
-            )
-            .finally(
-                () => {
-                    this.responseInterceptor();
-                });
-    }
-
-    put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
-        this.requestInterceptor();
-
-        return super.put(this.getFullUrl(url), body, this.requestOptions(options))
-            .catch(this.onCatch)
-            .do(
-                (res: Response) => {
-                    this.onSubscribeSuccess(res);
-                },
-                (error: any) => {
-                    this.onSubscribeError(error);
-                }
-            )
-            .finally(
-                () => {
-                    this.responseInterceptor();
-                });
-    }
-
-    delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-        this.requestInterceptor();
-
-        return super.delete(this.getFullUrl(url), this.requestOptions(options))
-            .catch(this.onCatch)
-            .do(
-                (res: Response) => {
-                    this.onSubscribeSuccess(res);
-                },
-                (error: any) => {
-                    this.onSubscribeError(error);
-                }
-            )
-            .finally(
-                () => {
-                    this.responseInterceptor();
-                });
+    setHeader(headers: Headers) {
+        this._headers = headers;
     }
 
     private getFullUrl(url: string): string {
+        url = CONSTANTS.API_URL + url;
         return url;
     }
 
-    private requestOptions(options?: RequestOptionsArgs): RequestOptionsArgs {
+    private requestOptions(options?): RequestOptionsArgs {
         if (options == null) {
             options = new RequestOptions();
         }
 
         if (options.headers == null) {
             options.headers = new Headers();
+            options.headers.append('Content-Type', 'application/json');
+        }
+
+        if (options.queryParams) {
+            options.search = this.toSearchParams(options.queryParams);
         }
 
         return options;
+    }
+
+    private toSearchParams(obj: Object): URLSearchParams {
+        let params: URLSearchParams = new URLSearchParams();
+        for (let key in obj) {
+            if(obj.hasOwnProperty(key)) {
+                params.set(key, obj[key])
+            }
+        }
+        return params;
     }
 
     private requestInterceptor(): void {
@@ -126,7 +89,11 @@ export class HttpService extends Http {
 
     }
 
-    private onCatch(error: any): Observable<any> {
+    private onCatch(error: Response): Observable<any> {
+        if (error instanceof Response) {
+            const body = error.json();
+            console.log(body);
+        }
         return Observable.throw(error);
     }
 

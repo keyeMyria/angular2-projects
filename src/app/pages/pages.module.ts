@@ -14,6 +14,7 @@ import { PagesComponent } from './pages.component';
 import { LoginComponent, LoginGuard, AuthGuard, LoginService } from './login';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { requestOptionsProvider } from '../services/DefualtRequestOptions';
 
 const GUARD_SERVICES = [
     AuthGuard,
@@ -28,7 +29,8 @@ const SERVICES = [
             return new HttpService(backend, defaultOptions);
         },
         deps: [XHRBackend, RequestOptions],
-    }
+    },
+    requestOptionsProvider
 ];
 
 const PAGE_COMPONENTS =[

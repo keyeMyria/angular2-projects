@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { ILoginForm, IToken } from './../../interfaces';
 
-
 @Component({
     selector: 'login',
     template: require('./login.html')
@@ -13,7 +12,7 @@ import { ILoginForm, IToken } from './../../interfaces';
 export class LoginComponent implements OnInit {
 
     public form: FormGroup;
-    public username: AbstractControl;
+    public email: AbstractControl;
     public password: AbstractControl;
 
     constructor(private _login: LoginService,
@@ -43,11 +42,11 @@ export class LoginComponent implements OnInit {
 
     private formBuild() {
         this.form = this._fb.group({
-            'username': ['', Validators.required],
+            'email': ['', Validators.required],
             'password': ['', Validators.required]
         });
 
-        this.username = this.form.controls['username'];
+        this.email = this.form.controls['email'];
         this.password = this.form.controls['password'];
 
         //this.form.valueChanges.subscribe((data: ISignInForm) => this.onValueChanged(data))
