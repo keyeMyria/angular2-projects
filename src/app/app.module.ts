@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { TranslateModule, TranslateStaticLoader, TranslateLoader } from 'ng2-translate';
 import { AppConfigService } from './app.config.service';
 import { AppRoutingModule } from './app-routing.module';
-import { PagesModule } from './pages/pages.module';
 
 @NgModule({
     imports: [
@@ -17,8 +16,6 @@ import { PagesModule } from './pages/pages.module';
             deps: [Http],
             useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/i18n', '.json')
         }),
-        AppRoutingModule,
-        PagesModule
     ],
     declarations: [
         AppComponent

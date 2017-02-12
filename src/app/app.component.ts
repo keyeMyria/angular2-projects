@@ -7,7 +7,7 @@ import '../public/scss/styles.scss';
 @Component({
     selector: 'app',
     template: `
-    <router-outlet></router-outlet>
+    <h1>Pp</h1>
     `
 })
 export class AppComponent {
