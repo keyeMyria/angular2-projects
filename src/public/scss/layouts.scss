@@ -1,0 +1,59 @@
+app, pages {
+  height: 100vh;
+  display: block;
+}
+
+.body-wrapper {
+  height: 100%;
+}
+
+.main {
+  height: 100%;
+}
+
+.sidebar-open {
+  .main {
+    padding-left: 200px;
+  }
+}
+
+.main {
+  transition: 0.2s;
+}
+
+.navbar-fixed {
+  padding-top: 51px;
+}
+
+se-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+footer {
+  height: 30px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:after {
+  content: ".";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+@media (min-width: 768px){
+  .navbar {
+     border-radius: 0;
+  }
+}
