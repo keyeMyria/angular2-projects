@@ -1,3 +1,18 @@
+
+$red: red;
+
+:root {
+    --color: green;
+}
+
 .app {
     font-size: 20px;
+
+    span {
+        color: $red;
+    }
+}
+
+span {
+    color: var(--color);
 }
