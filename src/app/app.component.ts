@@ -10,7 +10,6 @@ import 'bootstrap-grid';
     styles: [require('./app.css')],
     template: `
     <h1 class="app">App</h1>
-    <span>Color</span>
     `
 })
 export class AppComponent {
