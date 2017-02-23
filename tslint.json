@@ -26,7 +26,7 @@
     "use-host-property-decorator": true,
     "use-input-property-decorator": true,
     "use-life-cycle-interface": true,
-    "use-output-property-decorator": true,
+    "use-output-property-decorator": false,
     "use-pipe-transform-interface": true,
     "no-var-requires": false,
     "eofline": false,
@@ -55,6 +55,7 @@
       "allow-pascal-case",
       "ban-keywords",
       "check-format"
-    ]
+    ],
+    "member-access": [false]
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AppConfigService } from './app.config.service';
 
@@ -12,9 +12,20 @@ import 'bootstrap-grid';
     <h1 class="app">App</h1>
     `
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+    array = [23, 3, 4,  12, 53, 12, 21, 56, 41];
 
     constructor(private appConfig: AppConfigService) {
         appConfig.setDefaultLanguage();
+    }
+
+    ngOnInit() {
+        this.insectionSort(this.array);
+        console.log(this.array);
+    }
+
+    insectionSort(arr: number[]) {
+        
     }
 }
