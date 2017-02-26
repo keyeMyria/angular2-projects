@@ -130,8 +130,13 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          loader: ['to-string-loader', 'css-loader'],
+          loader: ['to-string-loader', 'css-loader', 'postcss-loader'],
           exclude: [helpers.root2('src/index.html')]
+        },
+
+        {
+          test: /\.scss$/,
+          loaders: ["style-loader", "css-loader", "sass-loader"]
         },
 
         /**
