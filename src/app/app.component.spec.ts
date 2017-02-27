@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 
@@ -8,50 +8,71 @@ import { AppConfigService } from './app.config.service';
 describe('AppComponent (inline template)', () => {
     let comp: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
-    let de: DebugElement;
-    let el: HTMLElement;
-    let appServiceStub;
+
+    let title: DebugElement;
+    let titleEl;
+
     let appService;
+    let spy;
+    let testQuote: string;
+
+    let quoteEl;
 
     beforeEach(() => {
-        // stub UserService for test purposes
-        appServiceStub = {
-            sum(a, b) {
-                return a + b;
-            }
-        };
+
+        testQuote = 'Something good!';
 
         TestBed.configureTestingModule({
-            declarations: [AppComponent], // declare test component
+            declarations: [AppComponent],
             providers: [
-                { provide: AppConfigService, useValue: appServiceStub }
+                AppConfigService
             ]
         });
 
         fixture = TestBed.createComponent(AppComponent);
         comp = fixture.componentInstance;
 
-        // UserService actually injected into the component
         appService = fixture.debugElement.injector.get(AppConfigService);
+        spy = spyOn(appService, 'getQuote')
+            .and.returnValue(Promise.resolve(testQuote));
 
-        // query for the title <h1> by CSS element selector
-        de = fixture.debugElement.query(By.css('h1'));
-        el = de.nativeElement;
+        title = fixture.debugElement.query(By.css('.app'));
+        titleEl = title.nativeElement;
+
+        quoteEl = fixture.debugElement.query(By.css('.twain')).nativeElement;
     });
 
     it('should display original title', () => {
         fixture.detectChanges();
-        expect(el.textContent).toEqual(comp.title);
+        expect(titleEl.textContent).toBe(comp.title);
     });
 
-    it('should display a different test title', () => {
-        comp.title = 'Test Title';
-        fixture.detectChanges();
-        expect(el.textContent).toContain('Test Title');
+    it('should not show quote before OnInit', () => {
+        expect(quoteEl.textContent).toBe('', 'nothing displayed');
+        expect(spy.calls.any()).toBe(false, 'getQuote not yet called');
     });
 
-    it('should be 6', () => {
+    it('should still not show quote after component initialized', () => {
         fixture.detectChanges();
-        expect(comp.sum).toBe(5);
+
+        expect(quoteEl.textContent).toBe('...', 'no quote yet');
+        expect(spy.calls.any()).toBe(true, 'getQuote called');
     });
+
+    it('should show quote after getQuote promise (async)', async(() => {
+        fixture.detectChanges();
+
+        fixture.whenStable().then(() => {
+            fixture.detectChanges();
+            expect(quoteEl.textContent).toBe(testQuote);
+        });
+    }));
+
+    it('should show quote after getQuote promise (faceAsync)', fakeAsync(() => {
+        fixture.detectChanges();
+        tick();
+        fixture.detectChanges();
+        expect(quoteEl.textContent).toBe(testQuote);
+    }));
+
 });

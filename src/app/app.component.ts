@@ -10,18 +10,20 @@ import 'bootstrap-grid';
     styles  : [require('./app.css')],
     template: `    
         <h1 class="app">{{title}}</h1>
+        <p class="twain"><i>{{quote}}</i></p>
     `
 })
 export class AppComponent implements OnInit {
 
     title: string = 'Test App';
-    sum: number = 0;
+    quote = '...';
 
     constructor(private appConfig: AppConfigService) {
-
     }
 
     ngOnInit() {
-        this.sum = this.appConfig.sum(2, 3);
+        this.appConfig.getQuote().then(quote => {
+            this.quote = quote;
+        });
     }
 }
