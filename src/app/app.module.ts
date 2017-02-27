@@ -8,22 +8,22 @@ import { AppConfigService } from './app.config.service';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-    imports: [
+    imports     : [
         BrowserModule,
         HttpModule,
         TranslateModule.forRoot({
-            provide: TranslateLoader,
-            deps: [Http],
+            provide   : TranslateLoader,
+            deps      : [Http],
             useFactory: (http: Http) => new TranslateStaticLoader(http, '/public/i18n', '.json')
         }),
     ],
     declarations: [
         AppComponent
     ],
-    providers: [
+    providers   : [
         AppConfigService
     ],
-    bootstrap: [AppComponent]
+    bootstrap   : [AppComponent]
 })
 export class AppModule {
 

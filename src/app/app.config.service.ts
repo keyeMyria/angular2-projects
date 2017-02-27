@@ -13,4 +13,8 @@ export class AppConfigService {
         this.translate.setDefaultLang('ua');
         this.translate.use('ua');
     }
+
+    sum(a: number, b: number): number {
+        return a + b;
+    }
 }

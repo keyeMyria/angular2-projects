@@ -7,20 +7,21 @@ import 'bootstrap-grid';
 
 @Component({
     selector: 'app',
-    styles: [require('./app.css')],
-    template: `
-    <h1 class="app">{{title}}</h1>
+    styles  : [require('./app.css')],
+    template: `    
+        <h1 class="app">{{title}}</h1>
     `
 })
 export class AppComponent implements OnInit {
 
     title: string = 'Test App';
+    sum: number = 0;
 
-    constructor() {
-        
+    constructor(private appConfig: AppConfigService) {
+
     }
 
-    ngOnInit () {
-        
+    ngOnInit() {
+        this.sum = this.appConfig.sum(2, 3);
     }
 }
