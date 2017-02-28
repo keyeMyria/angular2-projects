@@ -74,5 +74,4 @@ describe('AppComponent (inline template)', () => {
         fixture.detectChanges();
         expect(quoteEl.textContent).toBe(testQuote);
     }));
-
 });
