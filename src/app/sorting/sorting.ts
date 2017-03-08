@@ -1,4 +1,4 @@
-import { swap, findMinElementIndex } from './utils';
+import { swap, findMinElementIndex, merge } from './utils';
 
 export function bubbleSort(array: number[]): number[] {
     if (array.length < 2) return array;
@@ -30,9 +30,9 @@ export function insertionSort(array: number[]): number[] {
 }
 
 export function selectionSort(array: number[]): number[] {
-    if(array.length < 2) return array;
+    if (array.length < 2) return array;
 
-    for(let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         let minIndex: number = findMinElementIndex(array, i);
         swap(array, minIndex, i);
     }
@@ -40,6 +40,15 @@ export function selectionSort(array: number[]): number[] {
     return array;
 }
 
-export function mergeSort(array: number[]): number[] {
-    let middle = Math.floor(array.length / 2);
+export function mergeSort(array: number[]) {
+    return console.log(_mergeSort(array));
+}
+
+function _mergeSort(array: number[], startIndex = 0, lastIndex = array.length) {
+    if (array.length === 1) return array;
+    let middle = Math.floor((lastIndex - startIndex) / 2);
+    let left = array.slice(startIndex, middle);
+    let right = array.slice(middle, lastIndex);
+
+    return merge(_mergeSort(left), _mergeSort(right));
 }

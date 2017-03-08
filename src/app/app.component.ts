@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppConfigService } from './app.config.service';
+import { mergeSort } from './sorting/sorting';
 import { merge } from './sorting/utils';
 
 import '../public/scss/styles.scss';
@@ -26,5 +27,7 @@ export class AppComponent implements OnInit {
         this.appConfig.getQuote().then( (quote) => {
             this.quote = quote;
         });
+
+        mergeSort([4, 6, 1, 10, 7, 30, 4, 8, 23, 12, 100, 1, 0]);
     }
 }
