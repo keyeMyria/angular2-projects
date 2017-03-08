@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppConfigService } from './app.config.service';
-import { mergeSort } from './sorting/sorting';
-import { merge } from './sorting/utils';
+import { Sorting } from './sorting/sorting';
 
 import '../public/scss/styles.scss';
 import 'bootstrap-grid';
@@ -28,6 +27,6 @@ export class AppComponent implements OnInit {
             this.quote = quote;
         });
 
-        mergeSort([4, 6, 1, 10, 7, 30, 4, 8, 23, 12, 100, 1, 0]);
+        Sorting.quickSort([4, 7, 12, 5, 15, 22, 45, 25]);
     }
 }
