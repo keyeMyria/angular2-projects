@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AppConfigService } from './app.config.service';
+import { merge } from './sorting/utils';
 
 import '../public/scss/styles.scss';
 import 'bootstrap-grid';
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.appConfig.getQuote().then(quote => {
+        this.appConfig.getQuote().then( (quote) => {
             this.quote = quote;
         });
     }

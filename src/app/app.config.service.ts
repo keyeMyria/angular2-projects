@@ -4,9 +4,6 @@ import { TranslateService } from 'ng2-translate';
 @Injectable()
 export class AppConfigService {
 
-    constructor() {
-    }
-
     getQuote(): Promise<any> {
         return new Promise((resolve, reject) => {
             resolve('Something');

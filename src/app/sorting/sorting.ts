@@ -39,3 +39,7 @@ export function selectionSort(array: number[]): number[] {
 
     return array;
 }
+
+export function mergeSort(array: number[]): number[] {
+    let middle = Math.floor(array.length / 2);
+}
