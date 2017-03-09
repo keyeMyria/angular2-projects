@@ -27,6 +27,6 @@ export class AppComponent implements OnInit {
             this.quote = quote;
         });
 
-        Sorting.quickSort([4, 7, 12, 5, 15, 22, 45, 25]);
+        Sorting.quickSort([4, 40, 7, 12, 5, 15, 22, 45, 25, 8, 2]);
     }
 }

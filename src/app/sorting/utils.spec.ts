@@ -36,6 +36,9 @@ describe('Should merge two sorted array in one sorted array', () => {
     });
 
     it('should merge two arrays', () => {
+        expect(merge([], [])).toEqual([], 'correct merge empty array');
+        expect(merge([1, 2], [])).toEqual([1, 2]);
+        expect(merge([], [1, 2])).toEqual([1, 2]);
         expect(merge([3, 4, 7, 10], [1, 5, 8, 9])).toEqual([1, 3, 4, 5, 7, 8, 9, 10], 'first.length = second.length');
         expect(merge([0, 3, 4, 7, 10], [1, 5, 8, 9])).toEqual([0, 1, 3, 4, 5, 7, 8, 9, 10], 'first.length > second.length');
         expect(merge([3, 4, 7, 10], [1, 5, 8, 9, 10, 12])).toEqual([1, 3, 4, 5, 7, 8, 9, 10, 10, 12], 'first.length < second.length');

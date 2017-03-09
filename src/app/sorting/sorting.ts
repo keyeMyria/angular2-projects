@@ -51,7 +51,13 @@ export class Sorting {
         return merge(Sorting.mergeSort(left), Sorting.mergeSort(right));
     }
 
-    static quickSort(array: number[]) {
-        
+    static quickSort(array: number[]): number[] {
+        _quickSort(array);
+        console.log(array.toString());
+        return array;
     }
+}
+
+function _quickSort(array: number[],  startIndex: number = 0, endIndex: number = array.length - 1) {
+    
 }
