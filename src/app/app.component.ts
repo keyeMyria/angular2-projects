@@ -10,8 +10,7 @@ import 'bootstrap-grid';
     selector: 'app',
     styles  : [require('./app.css')],
     template: `    
-        <h1 class="app">{{title}}</h1>
-        <p class="twain"><i>{{quote}}</i></p>
+
     `
 })
 export class AppComponent implements OnInit {
@@ -27,6 +26,8 @@ export class AppComponent implements OnInit {
             this.quote = quote;
         });
 
-        Sorting.quickSort([4, 40, 7, 12, 5, 15, 22, 45, 25, 8, 2]);
+        let items = [4, 40, 7, 45, 15, 22, 25, 12, 5, 8, 2];
+
+        console.log(Sorting.quickSort(items, 0, items.length - 1));
     }
 }
