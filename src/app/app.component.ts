@@ -16,7 +16,7 @@ import 'bootstrap-grid';
 export class AppComponent implements OnInit {
 
     title: string = 'Test App';
-    quote = '...';
+    quote: string = '...';
 
     constructor(private appConfig: AppConfigService) {
     }
@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
         this.appConfig.getQuote().then( (quote) => {
             this.quote = quote;
         });
+    }
 
-        let items = [4, 40, 7, 45, 15, 22, 25, 12, 5, 8, 2];
-
-        console.log(Sorting.quickSort(items, 0, items.length - 1));
+    test() {
+        
     }
 }
