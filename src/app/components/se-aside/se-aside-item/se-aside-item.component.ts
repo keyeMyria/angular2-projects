@@ -3,7 +3,7 @@ import { PageMenuItem } from '../../../pages/pages.menu';
 
 @Component({
     selector: 'se-aside-item',
-    styles  : [require('./se-aside-item.css')],
+    styles  : [require('./se-aside-item.scss')],
     template: require('./se-aside-item.html')
 })
 export class SeAsideItemComponent implements OnInit {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '@angular/material';
 
 import { SeAsideComponent } from './se-aside/se-aside.component';
 import { SeAsideService } from './se-aside/se-aside.service';
@@ -19,7 +20,10 @@ const SERVICE = [
 ];
 
 @NgModule({
-    imports     : [CommonModule],
+    imports     : [
+        CommonModule,
+        MaterialModule
+    ],
     exports     : [...COMPONENTS],
     declarations: [...COMPONENTS],
     providers   : [...SERVICE],

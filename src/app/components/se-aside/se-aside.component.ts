@@ -5,7 +5,7 @@ import { SeAsideService } from './se-aside.service';
 
 @Component({
     selector: 'se-aside',
-    styles  : [require('./se-aside.css')],
+    styles  : [require('./se-aside.scss')],
     template: require('./se-aside.html')
 })
 export class SeAsideComponent implements OnInit, OnDestroy {

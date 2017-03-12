@@ -5,7 +5,7 @@ import { PAGES_MENU } from './pages.menu';
 
 @Component({
     selector: 'pages',
-    styles  : [require('./pages.css')],
+    styles  : [require('./pages.scss')],
     template: `
         <se-header></se-header>
         <section>
