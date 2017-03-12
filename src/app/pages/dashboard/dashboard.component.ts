@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'dashboard',
-    styles  : [require('./dashboard.css')],
+    styles  : [require('./dashboard.scss')],
     template: require('./dashboard.html')
 })
 export class DashboardComponent implements OnInit {
@@ -11,6 +11,5 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-
     }
 }

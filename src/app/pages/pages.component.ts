@@ -7,6 +7,7 @@ import { PAGES_MENU } from './pages.menu';
     selector: 'pages',
     styles  : [require('./pages.css')],
     template: `
+        <se-header></se-header>
         <section>
             <router-outlet></router-outlet>
         </section>
