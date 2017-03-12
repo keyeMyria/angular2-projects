@@ -3,22 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { AppConfigService } from './app.config.service';
 import { AppRoutingModule } from './app-routing.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
-    imports     : [
-        BrowserModule,
-        HttpModule
-    ],
+    imports     : [BrowserModule, HttpModule, AppRoutingModule, PagesModule],
     declarations: [
         AppComponent
-    ],
-    providers   : [
-        AppConfigService
     ],
     bootstrap   : [AppComponent]
 })
 export class AppModule {
-
 }

@@ -1,0 +1,5 @@
+<aside *ngIf="menuItems">
+    <ul *ngFor="let item of menuItems; let i = index;">
+        <se-aside-item [menuItem]="item"></se-aside-item>
+    </ul>
+</aside>
