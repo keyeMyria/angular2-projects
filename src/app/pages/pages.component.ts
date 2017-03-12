@@ -7,7 +7,9 @@ import { PAGES_MENU } from './pages.menu';
     selector: 'pages',
     styles  : [require('./pages.css')],
     template: `
-        <se-aside></se-aside>
+        <section>
+            <router-outlet></router-outlet>
+        </section>
     `
 })
 export class PagesComponent implements OnInit {

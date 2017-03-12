@@ -9,8 +9,6 @@ export class SeAsideService {
     updateMenuBarSource = new Subject();
     updateMenuBar$ = this.updateMenuBarSource.asObservable();
 
-    constructor() {}
-
     updateMenuBar(menuItems: PageMenuItem[]) {
         this.updateMenuBarSource.next(menuItems);
     }

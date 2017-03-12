@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
@@ -6,14 +6,12 @@ import { PagesComponent } from './pages.component';
 const routes: Routes = [
   {
       path: 'pages',
-      component: PagesComponent
+      component: PagesComponent,
+      children: [
+          { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+          { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' }
+      ]
   },
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class PagesRoutingModule { }
-
-export const routedComponents = [PagesComponent];
+export const routing: ModuleWithProviders = RouterModule.forChild(routes);

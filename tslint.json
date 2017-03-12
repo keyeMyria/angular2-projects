@@ -4,6 +4,7 @@
   ],
   
   "rules": {
+    "no-empty": false,
     // Custom
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "no-trailing-whitespace": false,

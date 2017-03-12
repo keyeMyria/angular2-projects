@@ -24,7 +24,7 @@ module.exports = {
             },
             {
                 test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+                loaders: ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader']
             },
             {
                 test: /\.html$/,
