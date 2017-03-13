@@ -59,5 +59,31 @@ export class Sorting {
         return merge(Sorting.mergeSort(left), Sorting.mergeSort(right));
     }
 
-    static quickSort(items: number[], left: number = 0, right: number = items.length - 1) { }
+    static quickSort(array: number[], left: number = 0, right: number = array.length - 1) {
+
+        if (array.length > 1) {
+            let index = partition(array, left, right);
+            console.log(index);
+            console.log('array', array.toString());
+        }
+    }
+}
+
+function partition(array: number[], left: number, right: number) {
+    let middle = array[Math.floor((right + left) / 2)];
+    let i = left;
+    let j = right;
+
+    while (i <= j) {
+        while (middle > array[i]) { i++; }
+        while (middle < array[j]) { j--; }
+
+        if (i <= j) {
+            swap(array, i, j);
+            i++;
+            j--;
+        }
+    }
+
+    return i;
 }
