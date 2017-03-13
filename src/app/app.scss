@@ -6,8 +6,14 @@
 
 body {
   color: $textBlack;
+  background: $bodyBg;
 }
 
-body {
-  background: $bodyBg;
+input {
+  outline: none;
+  border: none;
+}
+
+input[type='text'] {
+  padding: 3px 10px;
 }
