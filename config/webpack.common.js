@@ -50,7 +50,7 @@ module.exports = {
             // }
             {
                 test: /\.scss$/,
-                loaders: ['raw-loader', 'sass-loader']
+                loaders: ['raw-loader', 'postcss-loader' ,'sass-loader']
             }
         ]
     },
@@ -80,6 +80,10 @@ module.exports = {
             {
                 from: 'src/public/i18n',
                 to: 'public/i18n'
+            },
+            {
+                from: 'src/public/fonts',
+                to: 'public/fonts'
             }
         ])
     ]

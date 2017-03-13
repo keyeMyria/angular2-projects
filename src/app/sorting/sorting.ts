@@ -75,8 +75,12 @@ function partition(array: number[], left: number, right: number) {
     let j = right;
 
     while (i <= j) {
-        while (middle > array[i]) { i++; }
-        while (middle < array[j]) { j--; }
+        while (middle > array[i]) {
+            i++;
+        }
+        while (middle < array[j]) {
+            j--;
+        }
 
         if (i <= j) {
             swap(array, i, j);

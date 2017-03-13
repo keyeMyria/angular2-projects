@@ -9,6 +9,37 @@
   padding: $bodyPadding;
 }
 
+.header-search-form {
+  width: 50%;
+  max-width: 500px;
+}
+
 .header-search {
-  color: $textBlack;
+  display: flex;
+  color: $textGray;
+  background: $bgWhite;
+  height: 36px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+
+  input {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+
+  .se-icon {
+    border: none;
+    border-left: 1px solid $lightGray;
+    color: $lightGray;
+    font-size: 20px;
+    padding: 7px 10px;
+    cursor: pointer;
+
+    &:active {
+      background: #f3f3f3;
+    }
+  }
 }

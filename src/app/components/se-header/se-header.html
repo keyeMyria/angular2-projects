@@ -1,5 +1,8 @@
 <header class="header">
-    <div class="header-search">
-        <input type="text">
-    </div>
+    <form class="header-search-form" [formGroup]="form" (submit)="search(form.value.search)">
+        <div class="header-search">
+            <input type="text" name="search" formControlName="search">
+            <button type="submit" class="se-icon icon-search"></button>
+        </div>
+    </form>
 </header>
