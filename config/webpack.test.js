@@ -134,10 +134,14 @@ module.exports = function (options) {
           exclude: [helpers.root2('src/index.html')]
         },
 
-        {
-          test: /\.scss$/,
-          loaders: ["style-loader", "css-loader", "sass-loader"]
-        },
+        // {
+        //   test: /\.scss$/,
+        //   loaders: ["style-loader", "css-loader", "sass-loader"]
+        // },
+          {
+              test: /\.scss$/,
+              loaders: ['raw-loader', 'postcss-loader' ,'sass-loader']
+          },
 
         /**
          * Raw loader support for *.html

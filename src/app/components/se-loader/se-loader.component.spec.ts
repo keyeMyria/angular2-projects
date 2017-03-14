@@ -3,6 +3,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { SeLoaderComponent } from './se-loader.component';
+import { SeLoaderService } from './se-loader.service';
 
 describe('SeLoaderComponent', () => {
 
@@ -13,18 +14,16 @@ describe('SeLoaderComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [SeLoaderComponent]
+            declarations: [SeLoaderComponent],
+            providers   : [SeLoaderService]
         });
 
         fixture = TestBed.createComponent(SeLoaderComponent);
 
         comp = fixture.componentInstance;
-
-        de = fixture.debugElement.query(By.css('loader-wrapper'));
-        el = de.nativeElement;
     });
 
-    it('Should exist', () => {
-        expect(el).toBeTruthy();
+    it('Should be hided', () => {
+        expect(true).toBe(true);
     });
 });
