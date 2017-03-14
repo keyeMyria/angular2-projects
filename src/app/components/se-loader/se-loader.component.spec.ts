@@ -20,7 +20,11 @@ describe('SeLoaderComponent', () => {
 
         comp = fixture.componentInstance;
 
-        de = fixture.debugElement.query(By.css(''));
+        de = fixture.debugElement.query(By.css('loader-wrapper'));
         el = de.nativeElement;
+    });
+
+    it('Should exist', () => {
+        expect(el).toBeTruthy();
     });
 });
