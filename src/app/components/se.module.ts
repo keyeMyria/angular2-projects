@@ -8,16 +8,20 @@ import { SeAsideService } from './se-aside/se-aside.service';
 import { SeAsideItemComponent } from './se-aside/se-aside-item/se-aside-item.component';
 import { SeHeaderComponent } from './se-header/se-header.component';
 import { SeHeaderService } from './se-header/se-header.service';
+import { SeLoaderComponent } from './se-loader/se-loader.component';
+import { SeLoaderService } from './se-loader/se-loader.service';
 
 const COMPONENTS = [
     SeAsideItemComponent,
     SeAsideComponent,
-    SeHeaderComponent
+    SeHeaderComponent,
+    SeLoaderComponent
 ];
 
 const SERVICE = [
     SeAsideService,
-    SeHeaderService
+    SeHeaderService,
+    SeLoaderService
 ];
 
 @NgModule({

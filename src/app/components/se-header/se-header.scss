@@ -2,15 +2,16 @@
 
 .header {
   background: $darkMain;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: $textWhite;
   padding: $bodyPadding;
 }
 
 .header-search-form {
-  width: 50%;
+  width: 80%;
   max-width: 500px;
 }
 

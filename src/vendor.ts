@@ -12,4 +12,5 @@ import 'rxjs';
 
 import 'hammerjs';
 
+// Css framework bootstrap only grid
 import 'bootstrap-grid';

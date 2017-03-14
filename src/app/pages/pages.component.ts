@@ -11,6 +11,7 @@ import { PAGES_MENU } from './pages.menu';
         <section>
             <router-outlet></router-outlet>
         </section>
+        <se-loader></se-loader>
     `
 })
 export class PagesComponent implements OnInit {

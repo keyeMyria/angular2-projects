@@ -30,7 +30,7 @@ export class SeHeaderComponent implements OnInit, OnDestroy {
     }
 
     setValue(value: string = '') {
-        this.form.patchValue({'search': value});
+        this.form.patchValue({ search: value });
     }
 
     formBuilder() {
