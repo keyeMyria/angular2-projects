@@ -2,6 +2,8 @@ import { swap, findMinElementIndex, merge } from './utils';
 
 export class Sorting {
 
+    static count = 100;
+
     static bubbleSort(array: number[]): number[] {
         if (array.length < 2) {
             return array;
@@ -59,13 +61,25 @@ export class Sorting {
         return merge(Sorting.mergeSort(left), Sorting.mergeSort(right));
     }
 
-    static quickSort(array: number[], left: number = 0, right: number = array.length - 1) {
+    static quickSort(array: number[], left: number = 0, right: number = array.length - 1): number[] {
+
+        if(Sorting.count > 1000) return array;
+        Sorting.count++;
 
         if (array.length > 1) {
             let index = partition(array, left, right);
-            console.log(index);
-            console.log('array', array.toString());
+
+            if (left < index - 1) {
+                Sorting.quickSort(array, 0, index);
+            }
+
+            if (index < right - 1) {
+                console.log('index', index);
+                console.log('right', right);
+                Sorting.quickSort(array, index, right);
+            }
         }
+        return array;
     }
 }
 
