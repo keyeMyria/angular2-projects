@@ -4,17 +4,17 @@ import { MaterialModule } from '@angular/material';
 import { PagesComponent } from './pages.component';
 import { routing } from './pages.routing';
 import { SeModule } from '../components/se.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GAMES_COMPONENT } from './games';
 
 @NgModule({
     imports     : [
         CommonModule,
         routing,
         SeModule,
-        DashboardModule,
-        MaterialModule
+        MaterialModule,
     ],
-    declarations: [PagesComponent],
+    declarations: [PagesComponent, DashboardComponent, ...GAMES_COMPONENT],
 })
 export class PagesModule {
 }

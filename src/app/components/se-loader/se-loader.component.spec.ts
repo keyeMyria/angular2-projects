@@ -11,23 +11,28 @@ describe('SeLoaderComponent', () => {
     let de: DebugElement;
     let el: HTMLElement;
 
-    // async beforeEach
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SeLoaderComponent],
-            providers   : [SeLoaderService]
-        })
-            .compileComponents();
-    }));
+    // async beforeEach need if we have templateUrl and styleUrl
+    // beforeEach(async(() => {
+    //     TestBed.configureTestingModule({
+    //         declarations: [SeLoaderComponent],
+    //         providers   : [SeLoaderService]
+    //     })
+    //         .compileComponents()
+    // }));
 
     // synchronous beforeEach
     beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [SeLoaderComponent],
+            providers   : [SeLoaderService]
+        });
+
         fixture = TestBed.createComponent(SeLoaderComponent);
         comp = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    it('Should be hided loader', () => {
+    it('Should be initialized with hide loader', () => {
         expect(comp.isShow).toBeFalsy();
     });
 });

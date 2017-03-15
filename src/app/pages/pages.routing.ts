@@ -2,6 +2,8 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PagesComponent } from './pages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { GAMES_ROUTING } from './games';
 
 const routes: Routes = [
   {
@@ -9,7 +11,8 @@ const routes: Routes = [
       component: PagesComponent,
       children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-          { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' }
+          { path: 'dashboard', component: DashboardComponent },
+          ...GAMES_ROUTING
       ]
   },
 ];
