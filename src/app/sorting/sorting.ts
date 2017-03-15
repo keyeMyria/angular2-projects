@@ -63,9 +63,6 @@ export class Sorting {
 
     static quickSort(array: number[], left: number = 0, right: number = array.length - 1): number[] {
 
-        if(Sorting.count > 200) return array;
-        Sorting.count++;
-
         if (array.length > 1) {
             let index = partition(array, left, right);
 
@@ -82,7 +79,7 @@ export class Sorting {
     }
 }
 
-function partition(array: number[], left: number, right: number) {
+export function partition(array: number[], left: number, right: number) {
     let middle = array[Math.floor((right + left) / 2)];
     let i = left;
     let j = right;
