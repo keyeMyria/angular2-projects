@@ -63,22 +63,21 @@ export class Sorting {
 
     static quickSort(array: number[], left: number = 0, right: number = array.length - 1): number[] {
 
-        if(Sorting.count > 1000) return array;
+        if(Sorting.count > 200) return array;
         Sorting.count++;
 
         if (array.length > 1) {
             let index = partition(array, left, right);
 
             if (left < index - 1) {
-                Sorting.quickSort(array, 0, index);
+                Sorting.quickSort(array, 0, index - 1);
             }
 
-            if (index < right - 1) {
-                console.log('index', index);
-                console.log('right', right);
+            if (index < right) {
                 Sorting.quickSort(array, index, right);
             }
         }
+
         return array;
     }
 }

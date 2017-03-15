@@ -7,8 +7,8 @@ var helpers = require('./helpers');
 module.exports = {
     entry: {
         'polyfills': './src/polyfills.ts',
-        'vendor': './src/vendor.ts',
-        'app': './src/main.ts'
+        'vendor'   : './src/vendor.ts',
+        'app'      : './src/main.ts'
     },
 
     resolve: {
@@ -18,39 +18,46 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
+                test   : /\.ts$/,
                 enforce: 'pre',
-                loader: 'tslint-loader'
+                loader : 'tslint-loader'
             },
             {
-                test: /\.ts$/,
-                loaders: ['ng-router-loader', 'awesome-typescript-loader', 'angular2-template-loader']
+                test   : /\.ts$/,
+                loaders: [
+                    'ng-router-loader',
+                    'awesome-typescript-loader',
+                    'angular2-template-loader'
+                ]
             },
             {
-                test: /\.html$/,
+                test  : /\.html$/,
                 loader: 'html-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                test  : /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file-loader?name=assets/[name].[hash].[ext]'
             },
             {
-                test: /\.css$/,
+                test   : /\.css$/,
                 exclude: helpers.root('src', 'app'),
-                loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader?importLoaders=1!postcss-loader' })
+                loader : ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader        : 'css-loader?importLoaders=1!postcss-loader'
+                })
             },
             {
-                test: /\.css$/,
+                test   : /\.css$/,
                 include: helpers.root('src', 'app'),
-                loader: ['raw-loader', 'postcss-loader']
+                loader : ['raw-loader', 'postcss-loader']
             },
             // {
             //     test: /\.scss$/,
             //     loaders: ["style-loader", "css-loader", "sass-loader"]
             // }
             {
-                test: /\.scss$/,
-                loaders: ['raw-loader', 'postcss-loader' ,'sass-loader']
+                test   : /\.scss$/,
+                loaders: ['raw-loader', 'postcss-loader', 'sass-loader']
             }
         ]
     },
@@ -75,15 +82,15 @@ module.exports = {
         new CopyWebpackPlugin([
             {
                 from: 'src/public/images',
-                to: 'public/images'
+                to  : 'public/images'
             },
             {
                 from: 'src/public/i18n',
-                to: 'public/i18n'
+                to  : 'public/i18n'
             },
             {
                 from: 'src/public/fonts',
-                to: 'public/fonts'
+                to  : 'public/fonts'
             }
         ])
     ]

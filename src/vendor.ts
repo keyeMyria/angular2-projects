@@ -11,6 +11,3 @@ import 'rxjs';
 // You can import js, ts, css, sass, ...
 
 import 'hammerjs';
-
-// Css framework bootstrap only grid
-import 'bootstrap-grid';
