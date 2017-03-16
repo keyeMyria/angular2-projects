@@ -8,7 +8,7 @@ import { PAGES_MENU } from './pages.menu';
     styles  : [require('./pages.scss')],
     template: `
         <se-header></se-header>
-        <section>
+        <section class="animated fadeIn">
             <router-outlet></router-outlet>
         </section>
         <se-loader></se-loader>
