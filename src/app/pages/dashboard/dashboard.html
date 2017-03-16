@@ -1,8 +1,14 @@
 <h1>Dashboard</h1>
-<md-card>
-    <md-card-header>
-        <md-card-title>
-            <a [href]="'/pages/sudoku'" [routerLink]="['/pages/games/sudoku']">Sudoku</a>
-        </md-card-title>
-    </md-card-header>
-</md-card>
+
+<div class="row">
+    <div class="card-item col-md-4 col-sm-6 mb-xlg" *ngFor="let item of apps">
+        <md-card>
+            <md-card-header>
+                <md-card-title>
+                    <a class="card-item-title" [routerLink]="[item.link]">{{item.name}}</a>
+                </md-card-title>
+            </md-card-header>
+        </md-card>
+    </div>
+</div>
+
