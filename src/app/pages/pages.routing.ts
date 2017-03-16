@@ -12,9 +12,9 @@ const routes: Routes = [
       children: [
           { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
           { path: 'dashboard', component: DashboardComponent },
-          ...GAMES_ROUTING
       ]
   },
+    ...GAMES_ROUTING
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

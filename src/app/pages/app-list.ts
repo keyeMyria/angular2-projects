@@ -14,14 +14,14 @@ export const APP_LIST: Application[] = [
     {
         name   : 'Sudoku',
         version: '1.0',
-        link   : '/pages/games/sudoku',
+        link   : '/games/sudoku',
         image  : null,
         type   : ApplicationType.GAME
     },
     {
         name   : 'Snake',
         version: '1.0',
-        link   : '/pages/games/snake',
+        link   : '/games/snake',
         image  : null,
         type   : ApplicationType.GAME
     }
