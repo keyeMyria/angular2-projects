@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SeHeaderService } from '../../components/se-header/se-header.service';
-import { ApplicationUtils, ApplicationType } from '../app-list';
+import { ApplicationUtils } from '../app-list';
 
 @Component({
     selector: 'dashboard',
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.searchSub.unsubscribe();
     }
-    
+
     search(value: string) {
         this.apps = ApplicationUtils.searchByName(value);
     }

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-
 import { GamesComponent } from './games.component';
 import { SNAKE_COMPONENT, SNAKE_ROUTING } from './snake';
 import { SUDOKU_COMPONENT, SUDOKU_ROUTING } from './sudoku';
