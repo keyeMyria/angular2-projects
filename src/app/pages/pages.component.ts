@@ -8,9 +8,12 @@ import { PAGES_MENU } from './pages.menu';
     styles  : [require('./pages.scss')],
     template: `
         <se-header></se-header>
-        <section class="animated fadeIn">
-            <router-outlet></router-outlet>
-        </section>
+        <div class="wrapper-content">
+            <se-aside></se-aside>
+            <section class="content-section animated fadeIn">
+                <router-outlet></router-outlet>
+            </section>
+        </div>
         <se-loader></se-loader>
     `
 })

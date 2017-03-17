@@ -5,7 +5,6 @@ import { PagesComponent } from './pages.component';
 import { routing } from './pages.routing';
 import { SeModule } from '../components/se.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GAMES_COMPONENT } from './games';
 
 @NgModule({
     imports     : [
@@ -14,7 +13,7 @@ import { GAMES_COMPONENT } from './games';
         SeModule,
         MaterialModule,
     ],
-    declarations: [PagesComponent, DashboardComponent, ...GAMES_COMPONENT],
+    declarations: [PagesComponent, DashboardComponent],
 })
 export class PagesModule {
 }

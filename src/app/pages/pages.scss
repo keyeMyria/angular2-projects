@@ -1,5 +1,14 @@
 @import "../variables";
 
-section {
-  padding: $bodyPadding;
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.content-section {
+  width: 100%;
+}
+
+.wrapper-content {
+  display: flex;
 }
