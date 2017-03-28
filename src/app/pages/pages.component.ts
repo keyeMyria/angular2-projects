@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component, OnInit, AfterContentInit, AfterViewInit, AfterContentChecked,
+    AfterViewChecked
+} from '@angular/core';
 
 import { SeAsideService } from '../components/se-aside/se-aside.service';
 import { PAGES_MENU } from './pages.menu';
@@ -17,12 +20,15 @@ import { PAGES_MENU } from './pages.menu';
         <se-loader></se-loader>
     `
 })
-export class PagesComponent implements OnInit {
+export class PagesComponent implements OnInit, AfterViewInit {
 
     constructor(private _asideService: SeAsideService) {
     }
 
     ngOnInit() {
-        setTimeout(() => { this._asideService.updateMenuBar(PAGES_MENU); }, 0);
+    }
+
+    ngAfterViewInit() {
+        this._asideService.updateMenuBar(PAGES_MENU);
     }
 }

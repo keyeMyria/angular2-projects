@@ -13,6 +13,11 @@ export const PAGES_MENU: PageMenuItem[] = [
                 path : 'dashboard',
                 title: 'Dashboard',
                 icon : ''
+            },
+            {
+                path : 'questions',
+                title: 'Questions',
+                icon : ''
             }
         ]
     }

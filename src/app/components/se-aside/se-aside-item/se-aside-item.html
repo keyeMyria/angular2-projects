@@ -1,6 +1,8 @@
 <li *ngIf="menuItem">
 
-    <span *ngIf="menuItem.title">{{menuItem.title}}</span>
+    <a [routerLink]="[menuItem.path]">
+        <span *ngIf="menuItem.title">{{menuItem.title}}</span>
+    </a>
 
     <ul *ngIf="menuItem.children">
         <se-aside-item *ngFor="let item of menuItem.children" [menuItem]="item"></se-aside-item>
