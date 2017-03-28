@@ -85,10 +85,6 @@ module.exports = {
                 to  : 'public/images'
             },
             {
-                from: 'src/public/i18n',
-                to  : 'public/i18n'
-            },
-            {
                 from: 'src/public/fonts',
                 to  : 'public/fonts'
             }

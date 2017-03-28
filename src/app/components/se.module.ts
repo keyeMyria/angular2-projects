@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 import { SeAsideComponent } from './se-aside/se-aside.component';
 import { SeAsideService } from './se-aside/se-aside.service';
@@ -27,6 +28,7 @@ const SERVICE = [
 @NgModule({
     imports     : [
         CommonModule,
+        RouterModule,
         ReactiveFormsModule,
         MaterialModule
     ],

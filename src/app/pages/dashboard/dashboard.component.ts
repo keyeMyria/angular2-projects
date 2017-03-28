@@ -1,15 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { SeHeaderService } from '../../components/se-header/se-header.service';
-import { ApplicationUtils } from '../app-list';
 
 @Component({
     selector: 'dashboard',
-    styles  : [require('./dashboard.scss'), require('./card.scss')],
+    styles  : [require('./dashboard.scss')],
     template: require('./dashboard.html')
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-    apps: any[];
     searchSub: any;
 
     constructor(private _seHeader: SeHeaderService) {
@@ -17,7 +15,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.apps = ApplicationUtils.getApplications();
     }
 
     ngOnDestroy() {
@@ -25,6 +22,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     search(value: string) {
-        this.apps = ApplicationUtils.searchByName(value);
+
     }
 }
