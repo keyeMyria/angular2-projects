@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 
+
 import 'bootstrap-grid';
 
 @Component({
@@ -16,6 +17,5 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log('AppComponent ngOnInit');
     }
 }

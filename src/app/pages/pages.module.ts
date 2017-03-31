@@ -1,22 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 import { PagesComponent } from './pages.component';
 import { routing } from './pages.routing';
-import { SeModule } from '../components/se.module';
+import { SeComponentModule } from '../components/se.component.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { QuestionsFormComponent } from './questions/questions-form.component';
+import { SeDirectiveModule } from '../directives/se.directive.module';
+
+const COMPONENTS = [
+    DashboardComponent
+];
 
 @NgModule({
     imports     : [
         CommonModule,
+        FormsModule,
         ReactiveFormsModule,
         routing,
-        SeModule,
+        SeComponentModule,
+        SeDirectiveModule,
         MaterialModule,
     ],
-    declarations: [PagesComponent, DashboardComponent, QuestionsFormComponent],
+    declarations: [PagesComponent, ...COMPONENTS],
 })
 export class PagesModule {
 }

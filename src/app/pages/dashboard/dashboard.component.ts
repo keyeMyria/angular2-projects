@@ -22,6 +22,5 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     search(value: string) {
-
     }
 }

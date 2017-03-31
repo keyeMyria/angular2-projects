@@ -10,9 +10,9 @@ import { PAGES_MENU } from './pages.menu';
     selector: 'pages',
     styles  : [require('./pages.scss')],
     template: `
-        <se-header></se-header>
+        <!--<se-header></se-header>-->
         <div class="wrapper-content">
-            <se-aside></se-aside>
+            <!--<se-aside></se-aside>-->
             <section class="content-section animated fadeIn">
                 <router-outlet></router-outlet>
             </section>

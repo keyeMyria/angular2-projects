@@ -36,4 +36,4 @@ const SERVICE = [
     declarations: [...COMPONENTS],
     providers   : [...SERVICE],
 })
-export class SeModule { }
+export class SeComponentModule { }
