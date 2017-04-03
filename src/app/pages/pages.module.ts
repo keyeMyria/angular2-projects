@@ -7,6 +7,7 @@ import { routing } from './pages.routing';
 import { SeComponentModule } from '../components/se.component.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SeDirectiveModule } from '../directives/se.directive.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const COMPONENTS = [
     DashboardComponent
@@ -21,6 +22,7 @@ const COMPONENTS = [
         SeComponentModule,
         SeDirectiveModule,
         MaterialModule,
+        TranslateModule
     ],
     declarations: [PagesComponent, ...COMPONENTS],
 })

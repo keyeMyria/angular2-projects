@@ -7,7 +7,7 @@ import { routing } from './app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AppTranslateService } from './app.translate.service';
+import { HttpService } from './services/http.service';
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, 'public/json/i18n/', '.json');
@@ -29,7 +29,7 @@ export function HttpLoaderFactory(http: Http) {
     ],
     declarations: [AppComponent],
     exports     : [TranslateModule],
-    providers   : [AppTranslateService],
+    providers   : [HttpService],
     bootstrap   : [AppComponent]
 })
 export class AppModule {

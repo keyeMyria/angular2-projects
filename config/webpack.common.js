@@ -81,12 +81,8 @@ module.exports = {
 
         new CopyWebpackPlugin([
             {
-                from: 'src/public/images',
-                to  : 'public/images'
-            },
-            {
-                from: 'src/public/fonts',
-                to  : 'public/fonts'
+                from: 'src/public',
+                to  : 'public'
             }
         ])
     ]

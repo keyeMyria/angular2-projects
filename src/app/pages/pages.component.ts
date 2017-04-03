@@ -1,7 +1,4 @@
-import {
-    Component, OnInit, AfterContentInit, AfterViewInit, AfterContentChecked,
-    AfterViewChecked
-} from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { SeAsideService } from '../components/se-aside/se-aside.service';
 import { PAGES_MENU } from './pages.menu';
@@ -10,6 +7,7 @@ import { PAGES_MENU } from './pages.menu';
     selector: 'pages',
     styles  : [require('./pages.scss')],
     template: `
+        <se-langs></se-langs>
         <!--<se-header></se-header>-->
         <div class="wrapper-content">
             <!--<se-aside></se-aside>-->
