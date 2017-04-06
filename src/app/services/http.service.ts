@@ -27,7 +27,7 @@ export class HttpService {
         if (process.env.NODE_ENV === 'production') {
             this.API_URL = '';
         } else {
-            this.API_URL = 'http://192.168.100.10:8781';
+            this.API_URL = '';
         }
     }
 
