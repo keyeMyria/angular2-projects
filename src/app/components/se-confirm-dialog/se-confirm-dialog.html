@@ -1,0 +1,22 @@
+<div *ngIf="isOpen" class="confirm-content animated fadeIn">
+    <div class="overlay"></div>
+    <div class="confirm-dialog">
+        <h2 class="mb-md">{{settings.title}}</h2>
+        <div class="confirm-dialog_message">{{settings.message}}</div>
+        <div class="align-center mt-lg">
+            <button class="button-create btn-yellow"
+                    type='button'
+                    (click)="confirmDialogOk()"
+            >
+                <span class="btn-name text-upper">Так</span>
+            </button>
+
+            <button class="button-create btn-cancel ml-lg"
+                    type='button'
+                    (click)="confirmDialogClose()"
+            >
+                <span class="btn-name text-upper">Відмінити</span>
+            </button>
+        </div>
+    </div>
+</div>

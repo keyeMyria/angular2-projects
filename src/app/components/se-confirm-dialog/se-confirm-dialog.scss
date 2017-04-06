@@ -1,0 +1,67 @@
+@import "../../../scss/variables";
+
+.confirm-content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: $overlayBg;
+  opacity: 0.5;
+}
+
+.overlay-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $overlayBg;
+  opacity: 0;
+  z-index: 2;
+}
+
+.disabled {
+  * {
+    color: $txMuteGray !important;
+    cursor: default !important;
+  }
+
+  select, input {
+    background: #ccc;
+  }
+}
+
+.confirm-dialog {
+  position: relative;
+  z-index: 1002;
+  box-shadow: 0 2px 14px 10px rgba(0, 0, 0, 0.1);
+  background: $bgWhite;
+  border-radius: 3px;
+  padding: 20px 45px;
+  max-width: 500px;
+
+  h2 {
+    font-size: 19px;
+    color: $textTitleLightBlue;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  .confirm-dialog_message {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
