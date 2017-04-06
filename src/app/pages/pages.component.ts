@@ -2,10 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { SeAsideService } from '../components/se-aside/se-aside.service';
 import { PAGES_MENU } from './pages.menu';
-import { HttpService } from '../services/http.service';
-
-const TEST1_URL = 'http://192.168.100.10:8581/api/v1/web/council/basic';
-const TEST2_URL = 'http://192.168.100.10:8581/api/v1/web/deputy/active';
 
 @Component({
     selector: 'pages',
@@ -23,18 +19,10 @@ const TEST2_URL = 'http://192.168.100.10:8581/api/v1/web/deputy/active';
 })
 export class PagesComponent implements OnInit, AfterViewInit {
 
-    constructor(private _asideService: SeAsideService, private _httpService: HttpService) {
+    constructor(private _asideService: SeAsideService) {
     }
 
     ngOnInit() {
-        this._httpService.request(TEST2_URL).subscribe(
-            success => {
-                console.log('success', success);
-            },
-            error => {
-                console.log('error', error);
-            }
-        );
     }
 
     ngAfterViewInit() {

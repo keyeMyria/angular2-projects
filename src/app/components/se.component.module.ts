@@ -13,13 +13,15 @@ import { SeLoaderComponent } from './se-loader/se-loader.component';
 import { SeLoaderService } from './se-loader/se-loader.service';
 import { SeLangsService } from './se-lang/se-langs.service';
 import { SeLangsComponent } from './se-lang/se-langs.component';
+import { SeControlMessageComponent } from './se-control-message/se-control-message.component';
 
 const COMPONENTS = [
     SeAsideItemComponent,
     SeAsideComponent,
     SeHeaderComponent,
     SeLoaderComponent,
-    SeLangsComponent
+    SeLangsComponent,
+    SeControlMessageComponent
 ];
 
 const SERVICE = [

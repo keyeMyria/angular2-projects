@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { StorageService } from '../../services/storage.service';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Injectable()
 export class SeLangsService {
@@ -8,7 +8,7 @@ export class SeLangsService {
     defaultLang: string = 'en';
     defaultLangs: string[] = [this.defaultLang, 'uk'];
 
-    constructor(private _translate: TranslateService) {
+    constructor(private _translate: TranslateService, private _storage: StorageService ) {
         this.setDefaultLang('en');
     }
 
@@ -25,11 +25,11 @@ export class SeLangsService {
     }
 
     useLang(lang: string): void {
-        StorageService.setLang(lang);
+        this._storage.langs.setLang(lang);
         this._translate.use(lang);
     }
 
     getLang(): string {
-        return StorageService.getLang() || this.defaultLang;
+        return this._storage.langs.getLang() || this.defaultLang;
     }
 }

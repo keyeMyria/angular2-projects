@@ -47,7 +47,6 @@ export class HttpService {
 
     request(url: string, options?: RequestOptionsArgs): Observable<any> {
         let req = this.createRequestOptions(options);
-
         return this._http.request(this.getApiUrl(url), req)
             .map((res) => this._requestMap(res))
             .catch(this._onCatch);

@@ -8,9 +8,11 @@ import { SeComponentModule } from '../components/se.component.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SeDirectiveModule } from '../directives/se.directive.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { TestCmComponent } from './test/test.component';
 
 const COMPONENTS = [
-    DashboardComponent
+    DashboardComponent,
+    TestCmComponent
 ];
 
 @NgModule({
