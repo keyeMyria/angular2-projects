@@ -8,15 +8,17 @@ import { ValidationService } from './validation.service';
         <div *ngIf="errorMessage !== null">{{errorMessage}}</div>
     `
 })
-export class SeControlMessageComponent implements OnInit, OnChanges {
+export class SeControlMessageComponent implements OnInit {
 
     @Input() control: FormControl;
 
     get errorMessage() {
         for (let key in this.control.errors) {
             if (this.control.errors.hasOwnProperty(key) && this.control.touched) {
-                console.log(this.control.errors[key]);
-                return ValidationService.getValidatorErrorMessage(key, this.control.errors[key])
+                return ValidationService.getValidatorErrorMessage({
+                    validatorName: key,
+                    validatorValue: this.control.errors[key]
+                });
             }
         }
 
@@ -26,9 +28,4 @@ export class SeControlMessageComponent implements OnInit, OnChanges {
     constructor() { }
 
     ngOnInit() {  }
-
-    ngOnChanges() {
-        console.log(this.control);
-    }
-
 }

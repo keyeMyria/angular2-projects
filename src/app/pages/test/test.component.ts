@@ -19,12 +19,12 @@ export class TestCmComponent implements OnInit {
     constructor(private _fb: FormBuilder) { }
 
     ngOnInit() {
-        this.formBuilder();
+        this.form = this.formBuilder();
     }
 
     formBuilder() {
-        this.form = this._fb.group({
-            name: ['', [Validators.required]]
+        return this._fb.group({
+            name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(12)]]
         });
     }
 }
