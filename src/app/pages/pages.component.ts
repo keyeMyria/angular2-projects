@@ -9,7 +9,7 @@ import { PAGES_MENU } from './pages.menu';
     template: `
         <!--<se-header></se-header>-->
         <div class="wrapper-content">
-            <!--<se-aside></se-aside>-->
+            <se-aside></se-aside>
             <section class="content-section animated fadeIn">
                 <router-outlet></router-outlet>
             </section>
@@ -23,6 +23,7 @@ export class PagesComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+
     }
 
     ngAfterViewInit() {

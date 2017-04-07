@@ -52,7 +52,7 @@ module.exports = {
                 loader : ['raw-loader', 'postcss-loader']
             },
             // {
-            //     test: /\.scss$/,
+            //     subscription-management: /\.scss$/,
             //     loaders: ["style-loader", "css-loader", "sass-loader"]
             // }
             {

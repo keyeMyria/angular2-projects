@@ -15,8 +15,8 @@ export const PAGES_MENU: PageMenuItem[] = [
                 icon : ''
             },
             {
-                path : 'questions',
-                title: 'Questions',
+                path : 'subscription-management',
+                title: 'Subscription Management',
                 icon : ''
             }
         ]

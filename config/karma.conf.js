@@ -23,7 +23,7 @@ module.exports = function (config) {
     /*
      * list of files / patterns to load in the browser
      *
-     * we are building the test environment in ./spec-bundle.js
+     * we are building the subscription-management environment in ./spec-bundle.js
      */
     files: [
       { pattern: './config/spec-bundle.js', watched: false },
@@ -43,7 +43,7 @@ module.exports = function (config) {
      */
     preprocessors: { './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap'] },
 
-    // Webpack Config at ./webpack.test.js
+    // Webpack Config at ./webpack.subscription-management.js
     webpack: testWebpackConfig,
 
     coverageReporter: {
@@ -69,7 +69,7 @@ module.exports = function (config) {
     },
 
     /*
-     * test results reporter to use
+     * subscription-management results reporter to use
      *
      * possible values: 'dots', 'progress'
      * available reporters: https://npmjs.org/browse/keyword/karma-reporter
