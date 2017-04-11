@@ -4,7 +4,7 @@ var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
 var host = 'localhost';
-var port = 8000;
+var port = 3000;
 var publicPath = 'http://' + host + ':' + port;
 
 module.exports = webpackMerge(commonConfig, {

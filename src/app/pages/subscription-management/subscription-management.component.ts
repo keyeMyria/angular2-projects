@@ -5,7 +5,7 @@ import { Subscription, Observable } from 'rxjs';
     selector : 'subscription-management',
     template : `
         <h2>Async Pipe and share()</h2>
-        <div *ngIf="user | async; let users; else loading">
+        <div *ngIf="user | async as users; else loading">
             {{users | json}}
            <div *ngFor="let user of users">
                 <h2>{{user.firstName}} {{user.lastName}}</h2>

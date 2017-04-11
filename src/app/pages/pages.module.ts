@@ -10,7 +10,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SeDirectiveModule } from '../directives/se.directive.module';
 import { SubscriptionManagementComponent } from './subscription-management/subscription-management.component';
 
-
 const COMPONENTS = [
     DashboardComponent,
     SubscriptionManagementComponent
