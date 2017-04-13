@@ -65,5 +65,4 @@ export class SubscriptionManagementComponent implements OnInit {
             homeworld: 'Tatooine2'
         }).delay(3000);
     }
-
 }
