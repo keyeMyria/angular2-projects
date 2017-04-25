@@ -14,6 +14,9 @@ import { SeLoaderService } from './se-loader/se-loader.service';
 import { SeLangsService } from './se-lang/se-langs.service';
 import { SeLangsComponent } from './se-lang/se-langs.component';
 import { SeControlMessageComponent } from './se-control-message/se-control-message.component';
+import { SeProgressBarService } from './se-progress-bar/se-progress-bar.service';
+import { SeProgressBarComponent } from './se-progress-bar/se-progress-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const COMPONENTS = [
     SeAsideItemComponent,
@@ -21,14 +24,16 @@ const COMPONENTS = [
     SeHeaderComponent,
     SeLoaderComponent,
     SeLangsComponent,
-    SeControlMessageComponent
+    SeControlMessageComponent,
+    SeProgressBarComponent
 ];
 
 const SERVICE = [
     SeAsideService,
     SeHeaderService,
     SeLoaderService,
-    SeLangsService
+    SeLangsService,
+    SeProgressBarService
 ];
 
 @NgModule({

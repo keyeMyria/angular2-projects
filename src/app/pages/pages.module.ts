@@ -23,7 +23,6 @@ const COMPONENTS = [
         routing,
         SeComponentModule,
         SeDirectiveModule,
-        MaterialModule,
         TranslateModule
     ],
     declarations: [PagesComponent, ...COMPONENTS],
