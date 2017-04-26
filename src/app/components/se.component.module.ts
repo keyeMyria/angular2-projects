@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
 import { SeAsideComponent } from './se-aside/se-aside.component';
@@ -16,7 +15,6 @@ import { SeLangsComponent } from './se-lang/se-langs.component';
 import { SeControlMessageComponent } from './se-control-message/se-control-message.component';
 import { SeProgressBarService } from './se-progress-bar/se-progress-bar.service';
 import { SeProgressBarComponent } from './se-progress-bar/se-progress-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const COMPONENTS = [
     SeAsideItemComponent,
@@ -41,8 +39,7 @@ const SERVICE = [
         CommonModule,
         RouterModule,
         FormsModule,
-        ReactiveFormsModule,
-        MaterialModule
+        ReactiveFormsModule
     ],
     exports     : [...COMPONENTS],
     declarations: [...COMPONENTS],

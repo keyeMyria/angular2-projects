@@ -3,7 +3,6 @@ import { By } from '@angular/platform-browser';
 
 import { DashboardComponent } from './dashboard.component';
 import { SeHeaderService } from '../../components/se-header/se-header.service';
-import { MaterialModule } from '@angular/material';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 

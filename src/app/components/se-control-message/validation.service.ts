@@ -1,7 +1,7 @@
 interface ValidatorOptions {
     validatorName: string;
     validatorValue?: any;
-    messages?: Object;
+    messages?: any;
 }
 
 export class ValidationService {

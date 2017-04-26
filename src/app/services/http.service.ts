@@ -46,17 +46,17 @@ export class HttpService {
     }
 
     request(url: string, options?: RequestOptionsArgs): Observable<any> {
-        let req = this.createRequestOptions(options);
+        const req = this.createRequestOptions(options);
         return this._http.request(this.getApiUrl(url), req)
             .map((res) => this._requestMap(res))
             .catch(this._onCatch);
     }
 
     createRequestOptions(options: RequestOptionsArgs = {}): RequestOptionsArgs {
-        let req = new RequestOptions(options);
+        const req = new RequestOptions(options);
 
         if (req.headers === null) {
-            req.headers = this.defaultHeaders;
+            req.headers = apiRequestHeaders(this._storage.langs.getLang(), this._storage.login.getToken());
         }
 
         if (req.method === null) {

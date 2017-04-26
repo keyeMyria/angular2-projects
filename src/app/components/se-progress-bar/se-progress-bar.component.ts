@@ -54,7 +54,7 @@ export class SeProgressBarComponent implements OnInit, OnDestroy {
 
     countDown(params: ProgressBar = { timeInSecond: 10 }) {
         let width = 100;
-        let pass = +(width / params.timeInSecond).toFixed();
+        const pass = +(width / params.timeInSecond).toFixed();
         if (this.timer) {
             this.clearTimer();
         }
