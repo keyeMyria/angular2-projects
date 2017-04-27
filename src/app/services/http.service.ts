@@ -49,7 +49,7 @@ export class HttpService {
         const req = this.createRequestOptions(options);
         return this._http.request(this.getApiUrl(url), req)
             .map((res) => this._requestMap(res))
-            .catch(this._onCatch);
+            .catch((error) => this._onCatch(error));
     }
 
     createRequestOptions(options: RequestOptionsArgs = {}): RequestOptionsArgs {
