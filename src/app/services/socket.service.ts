@@ -13,7 +13,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
  *
  * onConnect() {
  *  messages = socketService.messages;
- *  messages.subscribe(onNext);
+ *  messageSub$ = socketService.messages;.subscribe(onNext);
  * }
  *
  * onNext(message) {
