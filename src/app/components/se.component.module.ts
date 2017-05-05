@@ -15,6 +15,11 @@ import { SeLangsComponent } from './se-lang/se-langs.component';
 import { SeControlMessageComponent } from './se-control-message/se-control-message.component';
 import { SeProgressBarService } from './se-progress-bar/se-progress-bar.service';
 import { SeProgressBarComponent } from './se-progress-bar/se-progress-bar.component';
+import { SeCountdownModule } from './se-countdown/se-countdown.module';
+
+const MODULES = [
+    SeCountdownModule
+];
 
 const COMPONENTS = [
     SeAsideItemComponent,
@@ -39,9 +44,10 @@ const SERVICE = [
         CommonModule,
         RouterModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ...MODULES
     ],
-    exports     : [...COMPONENTS],
+    exports     : [...COMPONENTS, ...MODULES],
     declarations: [...COMPONENTS],
     providers   : [...SERVICE],
 })

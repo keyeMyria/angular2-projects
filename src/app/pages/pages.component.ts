@@ -27,7 +27,7 @@ export class PagesComponent implements OnInit, AfterViewInit {
         getData()
             .filter((beer) => beer.price >= 8)
             .subscribe(
-                (beer) => console.log('Subscriber got ', beer),
+                (beer) => {},
                 (error) => console.error(error),
                 () => console.log('The stream is over')
             );

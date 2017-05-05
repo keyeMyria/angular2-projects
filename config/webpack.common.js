@@ -15,6 +15,13 @@ module.exports = {
         extensions: ['.ts', '.js']
     },
 
+    node: {
+        // console: 'empty',
+        // fs: 'empty',
+        net: 'empty',
+        // tls: 'empty',
+    },
+
     module: {
         rules: [
             {
